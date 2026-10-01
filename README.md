@@ -7,18 +7,6 @@ Two single-file web apps that run as [Claude artifacts](https://claude.ai) and r
 | [`kam-workspace/`](kam-workspace/index.html) | Key account manager on Northern Trail Outfitters | Daily queue, agenda, account timeline, new item reviews, promotions, funds, people, meeting prep, "Ask Claude" |
 | [`brand-workspace/`](brand-workspace/index.html) | Brand manager for PaleoBar | Path to store target, retailer decisions (New Item Feedback), buyer feedback themes, launch readiness, trade funding and fund requests, "Ask Claude" |
 
-## Screenshots
-
-These are full-page captures at 1440px wide, rendered from each page's embedded Salesforce snapshot (Sep 28 and Sep 29, 2026). Click an image for full resolution.
-
-### KAM workspace: Northern Trail Outfitters
-
-<a href="docs/screenshots/kam-workspace.png"><img src="docs/screenshots/kam-workspace.png" alt="Full-page screenshot of the Northern Trail Outfitters KAM workspace" width="720"></a>
-
-### Brand workspace: PaleoBar
-
-<a href="docs/screenshots/brand-workspace.png"><img src="docs/screenshots/brand-workspace.png" alt="Full-page screenshot of the PaleoBar brand manager workspace" width="720"></a>
-
 ## How it runs
 
 These pages use the claude.ai artifact runtime (`window.claude.use(...)`). They won't load live data if you open them from GitHub Pages or a local file. Without the runtime they fall back to an embedded snapshot, or to an empty state.
@@ -69,3 +57,15 @@ The field names are in the SOQL inside each page. A metadata package for these o
 
 - Data in the pages comes from a Salesforce demo org: Alpine Nutrition and Northern Trail Outfitters are fictional, and contact details use `.example` domains and 555 numbers.
 - The pages load fonts from Google Fonts and libraries from cdnjs and jsDelivr.
+
+## Screenshots
+
+These are full-page captures at 1440px wide, rendered from each page's embedded Salesforce snapshot (Sep 28 and Sep 29, 2026). Click an image for full resolution.
+
+### KAM workspace: Northern Trail Outfitters
+
+<a href="docs/screenshots/kam-workspace.png"><img src="docs/screenshots/kam-workspace.png" alt="Full-page screenshot of the Northern Trail Outfitters KAM workspace" width="720"></a>
+
+### Brand workspace: PaleoBar
+
+<a href="docs/screenshots/brand-workspace.png"><img src="docs/screenshots/brand-workspace.png" alt="Full-page screenshot of the PaleoBar brand manager workspace" width="720"></a>
