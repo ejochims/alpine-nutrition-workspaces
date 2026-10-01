@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PaleoBar Brand Workspace | Alpine Nutrition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Zilla+Slab:wght@300;400;500&display=swap">
+<style>
+:root{
+  --surface-page:#f7f6f2;--surface-card:#ffffff;--surface-sunken:#efeee9;
+  --ink:#353635;--ink-strong:#1c1c1c;--ink-muted:#6b6c6a;--hairline:#e2e1db;--border-control:#8a8b88;
+  --action:#353635;--action-hover:#1c1c1c;--on-action:#ffffff;--focus-ring:#353635;
+  --summit:#353635;--summit-deep:#1c1c1c;--on-summit:#ffffff;--sun:#fcd65e;--sun-deep:#eab930;--apricot:#faad6d;--apricot-deep:#eb8336;--glacier:#a9cdda;--glacier-deep:#50b3cd;--meadow:#8dcd9a;--meadow-deep:#58bb62;
+  --sun-tint:#fef6dc;--apricot-tint:#fdeee2;--glacier-tint:#e8f3f7;--meadow-tint:#e9f5eb;
+  --sun-text:#8a6a0b;--apricot-text:#a34f10;--glacier-text:#1f6f86;--meadow-text:#2d7a38;
+  --shadow-float:0 8px 24px rgba(28,28,28,.12);
+  --r-sm:8px;--r-md:16px;--r-lg:24px;
+  --font-sans:"Figtree","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-slab:"Zilla Slab",Rockwell,Georgia,serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --surface-page:#151615;--surface-card:#262726;--surface-sunken:#1c1c1c;
+  --ink:#f2f1ec;--ink-strong:#ffffff;--ink-muted:#a3a39f;--hairline:#3a3b3a;--border-control:#7a7b78;
+  --action:#f2f1ec;--action-hover:#ffffff;--on-action:#1c1c1c;--focus-ring:#f2f1ec;
+  --sun-tint:#332c14;--apricot-tint:#35261a;--glacier-tint:#1f2e33;--meadow-tint:#1d2e20;
+  --sun-text:#fcd65e;--apricot-text:#faad6d;--glacier-text:#7fc9dd;--meadow-text:#8dcd9a;
+  --shadow-float:0 8px 24px rgba(0,0,0,.5);color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --surface-page:#151615;--surface-card:#262726;--surface-sunken:#1c1c1c;
+  --ink:#f2f1ec;--ink-strong:#ffffff;--ink-muted:#a3a39f;--hairline:#3a3b3a;--border-control:#7a7b78;
+  --action:#f2f1ec;--action-hover:#ffffff;--on-action:#1c1c1c;--focus-ring:#f2f1ec;
+  --sun-tint:#332c14;--apricot-tint:#35261a;--glacier-tint:#1f2e33;--meadow-tint:#1d2e20;
+  --sun-text:#fcd65e;--apricot-text:#faad6d;--glacier-text:#7fc9dd;--meadow-text:#8dcd9a;
+  --shadow-float:0 8px 24px rgba(0,0,0,.5);color-scheme:dark;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{margin:0;background:var(--surface-page);color:var(--ink);font:400 15px/1.5 var(--font-sans);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.logo-dark{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-light{display:none}:root:not([data-theme="light"]) .logo-dark{display:inline}}
+:root[data-theme="dark"] .logo-light{display:none}:root[data-theme="dark"] .logo-dark{display:inline}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header.top{border-bottom:1px solid var(--hairline);background:var(--surface-card)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.brandrow{display:flex;align-items:center;gap:14px;min-width:0}
+.brandrow .sep{width:1px;height:22px;background:var(--hairline)}
+.ws{font-weight:600;color:var(--ink-strong);white-space:nowrap}
+.persona{display:flex;align-items:center;gap:10px}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--sun);color:#353635;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.persona b{display:block;font-weight:600;color:var(--ink-strong);line-height:1.2}
+.persona span{font-size:13px;color:var(--ink-muted)}
+.livebar{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--border-control);display:inline-block;margin-right:6px;vertical-align:1px}
+.dot.live{background:var(--meadow-deep)}.dot.snap{background:var(--glacier-deep)}.dot.err{background:var(--apricot-deep)}
+.btn{appearance:none;border:1px solid var(--border-control);background:var(--surface-card);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;cursor:pointer;color:var(--ink-strong)}
+.btn:hover{border-color:var(--ink-strong)}
+.btn.primary{background:var(--action);color:var(--on-action);border-color:var(--action)}
+.btn.primary:hover{background:var(--action-hover)}
+.btn[disabled]{opacity:.5;cursor:default}
+
+section{padding:40px 0 8px}
+h2{font:400 26px/1.2 var(--font-slab);color:var(--ink-strong);margin:0 0 6px}
+h3{font-size:15px;font-weight:600;color:var(--ink-strong);margin:0 0 8px}
+.lede{color:var(--ink-muted);margin:0 0 20px;max-width:68ch}
+.muted{color:var(--ink-muted)}
+.small{font-size:13px}
+
+/* hero */
+
+.cycle{font-size:14px;color:var(--ink-muted);margin:0 0 10px}
+h1{font:300 clamp(30px,4.4vw,52px)/1.1 var(--font-slab);color:var(--ink-strong);margin:0 0 14px;max-width:21ch;letter-spacing:-.01em}
+.headsub{font-size:17px;max-width:62ch;margin:0 0 28px;color:var(--ink)}
+.build{display:grid;gap:18px}
+.brow{display:grid;grid-template-columns:minmax(150px,230px) 1fr 70px;gap:16px;align-items:center}
+.bname{font-weight:600;color:var(--ink-strong);line-height:1.25}
+.bname small{display:block;font-weight:400;color:var(--ink-muted);font-size:12.5px;margin-top:2px}
+.track{position:relative;height:30px;background:var(--surface-sunken);border-radius:6px;overflow:hidden;display:flex}
+.seg{height:100%;border-right:2px solid var(--surface-card);transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.seg.acc{background:var(--meadow)}
+.seg.acc.fresh{background:var(--sun);box-shadow:inset 0 0 0 2px var(--sun-deep)}
+.seg.pend{background:repeating-linear-gradient(135deg,var(--glacier) 0 5px,var(--glacier-tint) 5px 10px)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.seg{animation:none}}
+.bpct{text-align:right;font-weight:700;font-size:18px;color:var(--ink-strong)}
+.bpct small{display:block;font-weight:400;font-size:12px;color:var(--ink-muted)}
+.bmeta{grid-column:2/4;margin-top:-10px;font-size:13px;color:var(--ink-muted)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--ink-muted);margin-top:18px}
+.sw{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.sw.acc{background:var(--meadow)}.sw.fresh{background:var(--sun);box-shadow:inset 0 0 0 1.5px var(--sun-deep)}.sw.pend{background:repeating-linear-gradient(135deg,var(--glacier) 0 3px,var(--glacier-tint) 3px 6px)}.sw.rej{background:var(--apricot)}
+.recent{margin-top:26px;border-top:1px solid var(--hairline);padding-top:16px}
+.recent ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 24px}
+.recent li{font-size:14px}
+.recent li .when{color:var(--ink-muted);font-size:12.5px;display:block}
+
+/* grid */
+.gridwrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--surface-card)}
+table.grid{border-collapse:separate;border-spacing:0;width:100%;min-width:760px}
+.grid th,.grid td{padding:8px;text-align:center;border-bottom:1px solid var(--hairline);font-size:13px}
+.grid thead th{font-weight:600;color:var(--ink-muted);font-size:12.5px;vertical-align:bottom;line-height:1.25;background:var(--surface-card)}
+.grid th.item{text-align:left;position:sticky;left:0;background:var(--surface-card);z-index:1;min-width:170px;color:var(--ink-strong);font-weight:600;font-size:13.5px}
+.grid tbody tr:last-child td,.grid tbody tr:last-child th{border-bottom:0}
+.cell{appearance:none;border:0;width:100%;min-width:64px;border-radius:6px;padding:7px 4px;cursor:pointer;font-weight:600;font-size:13px;line-height:1.15}
+.cell small{display:block;font-weight:400;font-size:11px;opacity:.85;margin-top:2px}
+.cell.acc{background:var(--meadow-tint);color:var(--meadow-text)}
+.cell.rej{background:var(--apricot-tint);color:var(--apricot-text)}
+.cell.rev{background:var(--glacier-tint);color:var(--glacier-text)}
+.cell.draft{background:transparent;color:var(--ink-muted);box-shadow:inset 0 0 0 1px var(--hairline)}
+.cell.fresh{box-shadow:inset 0 0 0 2px var(--sun-deep)}
+.cell.none{cursor:default;background:transparent;color:var(--hairline)}
+.retcol.nto{color:var(--ink-strong)}
+
+/* two column */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.two>*,.tradegrid>*,.brow>*{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{appearance:none;border:1px solid var(--hairline);background:var(--surface-card);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--action);color:var(--on-action);border-color:var(--action)}
+.themes{display:grid;gap:8px;margin-bottom:18px}
+.trow{display:grid;grid-template-columns:150px 1fr 28px;gap:10px;align-items:center;font-size:13.5px}
+.tbar{height:10px;border-radius:5px;background:var(--surface-sunken);overflow:hidden;display:flex}
+.tbar i{display:block;height:100%}
+.quotes{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.quotes li{border-left:3px solid var(--hairline);padding:2px 0 2px 14px}
+.quotes li.acc{border-color:var(--meadow)}.quotes li.rej{border-color:var(--apricot)}.quotes li.rev{border-color:var(--glacier)}
+.quotes q{font:400 16.5px/1.45 var(--font-slab);color:var(--ink-strong);quotes:"\201C" "\201D"}
+.quotes .who{display:block;font-size:12.5px;color:var(--ink-muted);margin-top:3px}
+.ready{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline)}
+.ready li{padding:14px 0;border-bottom:1px solid var(--hairline);display:grid;gap:4px}
+.ready .rtop{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.good{background:var(--meadow-tint);color:var(--meadow-text)}
+.pill.warn{background:var(--sun-tint);color:var(--sun-text)}
+.pill.bad{background:var(--apricot-tint);color:var(--apricot-text)}
+.pill.info{background:var(--glacier-tint);color:var(--glacier-text)}
+.pill.plain{background:var(--surface-sunken);color:var(--ink-muted)}
+
+/* trade */
+.tradegrid{display:grid;grid-template-columns:minmax(260px,1fr) minmax(0,2fr);gap:32px;align-items:start}
+.fund{border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--surface-card);padding:18px}
+.fund .big{font:300 34px/1.1 var(--font-slab);color:var(--ink-strong);margin:4px 0}
+.fund .big.neg{color:var(--apricot-text)}
+.fundbar{height:12px;background:var(--surface-sunken);border-radius:6px;overflow:hidden;margin:12px 0 8px;position:relative}
+.fundbar i{position:absolute;left:0;top:0;bottom:0;background:var(--apricot)}
+.fundbar b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink-strong)}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13.5px;margin-top:8px}
+.kv dt{color:var(--ink-muted)}.kv dd{margin:0;text-align:right;font-weight:600}
+.asks{margin-top:18px;border-top:1px solid var(--hairline);padding-top:14px}
+.asks p{margin:4px 0;font-size:13.5px}
+.tablewrap{overflow-x:auto}
+table.promos{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+.promos th{text-align:left;font-weight:600;font-size:12.5px;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--hairline)}
+.promos td{padding:8px;border-bottom:1px solid var(--hairline);vertical-align:top}
+.promos td.n{text-align:right;white-space:nowrap}
+.promos th.n{text-align:right}
+.deliv{display:inline-block;width:56px;height:6px;background:var(--surface-sunken);border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:6px}
+.deliv i{display:block;height:100%}
+.tag{font-size:11.5px;color:var(--ink-muted);display:block}
+.repr{font-size:11.5px;color:var(--sun-text);background:var(--sun-tint);border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+.insight{background:var(--surface-card);border:1px solid var(--hairline);border-left:3px solid var(--sun-deep);border-radius:var(--r-sm);padding:12px 14px;margin:0 0 16px;font-size:14px}
+
+/* fund request */
+.frlist{list-style:none;margin:10px 0 0;padding:0}
+.frlist li{padding:10px 0;border-bottom:1px solid var(--hairline);font-size:13.5px;display:flex;justify-content:space-between;gap:10px}
+form.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin-top:14px;padding:16px;border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--surface-card)}
+form.fr label{display:grid;gap:4px;font-size:13px;color:var(--ink-muted)}
+form.fr .full{grid-column:1/-1}
+form.fr input,form.fr select,form.fr textarea{border:1px solid var(--border-control);border-radius:var(--r-sm);padding:8px 10px;background:var(--surface-card);color:var(--ink-strong);font-size:14px}
+form.fr textarea{min-height:64px;resize:vertical}
+.formrow{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.review{grid-column:1/-1;background:var(--surface-sunken);border-radius:var(--r-sm);padding:12px;font-size:13px}
+.review dl{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;margin:6px 0 0}
+.review dt{color:var(--ink-muted)}.review dd{margin:0;color:var(--ink-strong)}
+.okmsg{color:var(--meadow-text);font-weight:600}
+.errmsg{color:var(--apricot-text)}
+
+/* ask */
+.ask{border:1px solid var(--hairline);border-radius:var(--r-lg);background:var(--surface-card);padding:20px}
+.askrow{display:flex;gap:10px;margin-top:6px}
+.askrow input{flex:1;border:1px solid var(--border-control);border-radius:999px;padding:10px 16px;background:var(--surface-card);color:var(--ink-strong);min-width:0}
+.answer{margin-top:16px;white-space:pre-wrap;font-size:15px;line-height:1.6;max-width:72ch}
+.answer.thinking{color:var(--ink-muted)}
+
+/* calls */
+details.calls{margin:40px 0 56px;border-top:1px solid var(--hairline);padding-top:16px}
+details.calls summary{cursor:pointer;font-weight:600;color:var(--ink-strong)}
+.calllist{list-style:none;margin:12px 0 0;padding:0;font-size:13px;display:grid;gap:6px}
+.calllist li{display:grid;grid-template-columns:70px 1fr auto;gap:12px}
+.calllist .m{font-weight:700;color:var(--glacier-text)}
+.calllist .m.w{color:var(--apricot-text)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:20}
+.scrim.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--surface-card);box-shadow:var(--shadow-float);z-index:21;transform:translateX(100%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));overflow-y:auto}
+.drawer.open{transform:none;visibility:visible;transition:transform .22s ease}
+@media (prefers-reduced-motion:reduce){.drawer{transition:none}}
+.drawer h3{font:400 22px/1.2 var(--font-slab);margin:6px 0 2px}
+.drawer .close{float:right}
+.drawer dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;margin:16px 0}
+.drawer dt{color:var(--ink-muted)}.drawer dd{margin:0;color:var(--ink-strong)}
+.drawer blockquote{margin:12px 0;font:400 17px/1.45 var(--font-slab);color:var(--ink-strong);border-left:3px solid var(--hairline);padding-left:14px}
+
+.notice{margin:24px 0 0;padding:14px 16px;border-radius:var(--r-sm);background:var(--surface-sunken);font-size:14px}
+.skeleton{color:var(--ink-muted)}
+
+@media (max-width:860px){
+  .two,.tradegrid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .brow{grid-template-columns:1fr 64px;gap:8px 12px}
+  .brow .bname{grid-column:1/-1}
+  .brow .track{grid-column:1/2}
+  .bmeta{grid-column:1/-1;margin-top:-4px}
+  .wrap{padding:0 16px}
+  form.fr{grid-template-columns:1fr}
+  .trow{grid-template-columns:120px 1fr 24px}
+}
+
+/* Salesforce provenance (matches KAM workspace) */
+.sf-lock{display:inline-flex;align-items:center;gap:8px;font:600 14px/20px var(--font-sans);color:var(--ink);white-space:nowrap}
+.sf-lock img{height:24px;width:auto}
+a.rec{text-decoration:none;border-radius:999px;display:inline-flex;vertical-align:middle}
+.src{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 10px 2px 3px;font:500 12px/18px var(--font-sans);color:var(--ink);border:1px solid var(--hairline);background:var(--surface-card);white-space:nowrap}
+.src b{display:inline-block;width:26px;min-width:26px;height:18px;background:transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIiB2aWV3Qm94PSIwIDAgNDAwMCAyODAwIj48cGF0aCBmaWxsPSIjMDBhMWUwIiBkPSJtMTY2NiAzMDdhNzAwIDcwMCAwIDAxMTEyMyAxNDggODY2IDg2NiAwIDAxMTIxMSA3OTVjMSA0ODAtMzg1IDg3MC04NjEgODcwYTg1NyA4NTcgMCAwMS0xNzAtMTggNjMwIDYzMCAwIDAxLTgyNSAyNjAgNzE5IDcxOSAwIDAxLTEzMzctMzMgNjcxIDY3MSAwIDAxLTgwNS02NTljMC0yNTAgMTM0LTQ2OCAzMzMtNTg0YTc3NiA3NzYgMCAwMTEzMzAtNzgwIi8+PC9zdmc+) center/contain no-repeat}
+a.rec:hover .src{border-color:var(--border-control)}
+.src.only{padding:2px 4px 2px 3px}
+@media (max-width:860px){#sfSep{display:none}}
+
+/* ---- v3 layout: masthead, cards, callouts, calendar ---- */
+.page{padding-top:20px;padding-bottom:8px}
+.mast{background:var(--summit);color:var(--on-summit);border-radius:24px;padding:22px 28px 30px;display:flex;flex-direction:column;gap:22px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mast{background:var(--summit-deep);box-shadow:inset 0 0 0 1px var(--hairline)}}
+:root[data-theme="dark"] .mast{background:var(--summit-deep);box-shadow:inset 0 0 0 1px var(--hairline)}
+.mast .logo-light{display:none!important}.mast .logo-dark{display:inline!important}
+.mastbar{display:flex;align-items:center;justify-content:space-between;gap:14px 20px;flex-wrap:wrap}
+.mast .brandrow .sep{background:rgba(255,255,255,.3)}
+.mast .ws{color:rgba(255,255,255,.85)}
+.mast .sf-lock{color:var(--on-summit)}
+.mast .persona b{color:var(--on-summit)}.mast .persona span{color:rgba(255,255,255,.75)}
+.mast .livebar{color:rgba(255,255,255,.8)}
+.mast .btn{background:transparent;color:var(--on-summit);border-color:rgba(255,255,255,.7)}
+.mast .btn:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.mast .cycle{color:rgba(255,255,255,.75);margin:0 0 8px}
+.mast h1{color:var(--on-summit);margin:0 0 12px}
+.mast .headsub{color:rgba(255,255,255,.88);margin:0}
+.mast :focus-visible{outline-color:#fff}
+.banner{display:none;margin-top:16px;background:var(--sun);color:#353635;border-radius:16px;padding:14px 18px;font-size:15px;align-items:center;gap:14px;flex-wrap:wrap}
+.banner.show{display:flex;flex-wrap:nowrap;align-items:flex-start}
+.banner .bdot{margin-top:6px}
+.banner b{font-weight:700}
+.banner .bdot{width:10px;height:10px;border-radius:50%;background:#353635;flex:none;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.banner .bdot{animation:none}}
+.callouts{padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:16px}
+.callout{background:var(--sun-tint);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.callout .chead{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--sun-text)}
+.callout .chead i{width:22px;height:22px;border-radius:50%;background:var(--sun);display:grid;place-items:center;flex:none}
+.callout .chead svg{width:12px;height:12px;fill:#353635}
+.callout h3{font:400 19px/1.25 var(--font-slab);margin:0;color:var(--ink-strong)}
+.callout p{margin:0;font-size:14px}
+.callout .cact{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;padding-top:4px}
+.card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:24px;padding:24px 26px;min-width:0}
+.cards{display:grid;gap:18px;margin-top:18px}
+.cardrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.cardrow.cal{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.card h2{margin-bottom:4px}
+.card .lede{margin-bottom:18px}
+.card .lede.find{color:var(--ink);font-size:15px}
+.card .lede.find b{color:var(--ink-strong)}
+.card > .gridwrap{border-radius:16px}
+.seg.np{background:transparent;box-shadow:inset 0 0 0 1.5px var(--border-control);border-right:2px solid var(--surface-card);background-image:repeating-linear-gradient(90deg,transparent 0 6px,var(--surface-card) 6px 8px);}
+.sw.np{box-shadow:inset 0 0 0 1.5px var(--border-control);background:transparent}
+.track{background:var(--surface-sunken)}
+.gapline{grid-column:2/4;margin-top:-8px;font-size:13.5px;color:var(--ink)}
+.gapline .warnword{color:var(--apricot-text);font-weight:600}
+/* calendar */
+.cal-list{list-style:none;margin:0;padding:0}
+.cal-list > li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--hairline)}
+.cal-list > li.muted,.cal-list > li.skeleton,.cal-list > li.errmsg{display:block}
+.cal-list > li:first-child{border-top:0;padding-top:4px}
+.dateblk{border-radius:12px;background:var(--surface-sunken);text-align:center;padding:6px 0 7px;line-height:1.1;align-self:start}
+.dateblk b{display:block;font:400 24px/1.05 var(--font-slab);color:var(--ink-strong)}
+.dateblk span{font-size:11.5px;color:var(--ink-muted);font-weight:600}
+.dateblk.soon{background:var(--sun-tint)}
+.mtitle{font-weight:600;color:var(--ink-strong);line-height:1.3}
+.mmeta{font-size:12.5px;color:var(--ink-muted);margin:2px 0 6px}
+.needs{display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.need{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.need .tagk{font-size:11.5px;font-weight:600;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.tagk.dec{background:var(--glacier-tint);color:var(--glacier-text)}
+.tagk.sup{background:var(--sun-tint);color:var(--sun-text)}
+.tagk.opp{background:var(--meadow-tint);color:var(--meadow-text)}
+.tagk.risk{background:var(--apricot-tint);color:var(--apricot-text)}
+.mact{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn.sm{padding:4px 11px;font-size:12.5px}
+.confirm{margin-top:8px;background:var(--surface-sunken);border-radius:10px;padding:10px 12px;font-size:13px}
+.confirm .row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.flow{list-style:none;margin:0;padding:0}
+.flow li{padding:12px 0;border-top:1px solid var(--hairline);font-size:13.5px;display:grid;gap:4px}
+.flow li:first-child{border-top:0;padding-top:0}
+.flow .ftop{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.flow .fk{font-size:12px;color:var(--ink-muted)}
+.flowh{font-size:13px;font-weight:600;color:var(--ink-muted);margin:14px 0 4px}
+.flowh:first-of-type{margin-top:0}
+@media (max-width:860px){
+  .mast .brandrow{flex-wrap:wrap;row-gap:8px}
+  .mast{padding:18px 18px 24px;border-radius:20px}
+  .cardrow,.cardrow.cal{grid-template-columns:minmax(0,1fr)}
+  .card{padding:18px 16px;border-radius:20px}
+  .gapline{grid-column:1/-1;margin-top:-4px}
+}
+.stages{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
+.stages i{width:14px;height:6px;border-radius:3px;background:var(--hairline)}
+.stages i.on{background:var(--meadow-deep)}
+.asklist{list-style:none;margin:0;padding:0}
+.asklist li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--hairline);font-size:13.5px}
+.askact{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.frlist li.ifr{display:block}
+.frlist .ftop{display:flex;justify-content:space-between;gap:10px}
+.ifrstage{margin-top:6px}
+.fincomment{margin:6px 0 0;font-size:13px;background:var(--surface-sunken);border-radius:8px;padding:6px 10px}
+form.fr .hint{font-size:12px;color:var(--ink-muted)}
+.fr > *,form.fr label{min-width:0}
+form.fr input,form.fr select,form.fr textarea{width:100%;max-width:100%;min-width:0}
+.amountline{display:flex;flex-direction:column;gap:2px;background:var(--sun-tint);border-radius:10px;padding:10px 12px}
+.amountline > span:first-child{font-size:13px;color:var(--ink-muted)}
+.amountline b{font:400 26px/1.15 var(--font-slab);color:var(--ink-strong)}
+</style>
+</head>
+<body>
+<main class="wrap page">
+  <header class="mast" aria-labelledby="headline">
+    <div class="mastbar">
+      <div class="brandrow">
+        <img class="logo-light" id="logoL" alt="Alpine Nutrition" width="148" height="26">
+        <img class="logo-dark" id="logoD" alt="Alpine Nutrition" width="148" height="26">
+        <span class="sep" aria-hidden="true"></span>
+        <span class="ws">Brand workspace</span>
+        <span class="sep" aria-hidden="true" id="sfSep"></span>
+        <span class="sf-lock" id="sfLock"><img id="logoSF" alt="" width="34" height="24"><span>Powered by Salesforce</span></span>
+      </div>
+      <div class="persona">
+        <div class="avatar" aria-hidden="true">MO</div>
+        <div><b>Maya Ortiz</b><span>Brand Manager, PaleoBar</span></div>
+      </div>
+      <div class="livebar">
+        <span id="status"><span class="dot"></span>Connecting to Salesforce</span>
+        <button class="btn" id="refresh" type="button">Refresh</button>
+      </div>
+    </div>
+    <div>
+      <p class="cycle" id="cycle">H1 2027 innovation cycle</p>
+      <h1 id="headline">Reading retailer decisions from Salesforce</h1>
+      <p class="headsub" id="headsub"></p>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" role="status"></div>
+  <div id="notice"></div>
+  <section class="callouts" id="callouts" aria-label="Needs your attention"></section>
+
+  <div class="cards">
+    <section class="card" id="hero" aria-labelledby="pathh">
+      <h2 id="pathh">Path to target</h2>
+      <p class="lede find" id="pathFind">Committed stores, stores still deciding, and retailers the item hasn't been presented to yet.</p>
+      <div class="build" id="build"></div>
+      <div class="legend" id="legend" hidden>
+        <span><i class="sw acc"></i>Committed</span>
+        <span><i class="sw fresh"></i>Decided in the last 2 hours</span>
+        <span><i class="sw pend"></i>Still deciding</span>
+        <span><i class="sw np"></i>Not yet presented</span>
+        <span>Track length is the store target</span>
+      </div>
+    </section>
+
+    <div class="cardrow cal">
+      <section class="card" id="calSec" aria-labelledby="calh">
+        <h2 id="calh">Upcoming PaleoBar meetings</h2>
+        <p class="lede find" id="calFind">The next customer meetings where a PaleoBar decision or launch plan is on the table, synced from the account team's calendars.</p>
+        <ul class="cal-list" id="calList"><li class="skeleton">Loading meetings</li></ul>
+      </section>
+      <section class="card" id="flowSec" aria-labelledby="flowh">
+        <h2 id="flowh">Workflows in flight</h2>
+        <p class="lede">Approvals and requests running in Salesforce right now.</p>
+        <div id="flows"></div>
+      </section>
+    </div>
+
+    <section class="card" id="grid" aria-labelledby="gridh">
+      <h2 id="gridh">Where each retailer landed</h2>
+      <p class="lede find" id="gridFind">Every cell is a New Item Feedback record a key account manager captured. Select one for the buyer's reasoning.</p>
+      <div class="gridwrap"><table class="grid" id="gridTable"><tbody><tr><td class="skeleton">Loading</td></tr></tbody></table></div>
+      <div class="recent" id="recent" hidden>
+        <h3>Latest buyer decisions</h3>
+        <ul id="recentList"></ul>
+      </div>
+    </section>
+
+    <div class="cardrow">
+      <section class="card" id="why" aria-labelledby="whyh">
+        <h2 id="whyh">Why buyers decided the way they did</h2>
+        <p class="lede find" id="whyFind">Feedback themes across every retailer that has responded.</p>
+        <div class="chips" id="themeChips" role="group" aria-label="Filter by item"></div>
+        <div class="themes" id="themes"></div>
+        <ul class="quotes" id="quotes"></ul>
+      </section>
+      <section class="card" id="ready" aria-labelledby="readyh">
+        <h2 id="readyh">Launch readiness</h2>
+        <p class="lede find" id="readyFind">What has to be true for committed stores to turn into shelf presence.</p>
+        <ul class="ready" id="readyList"></ul>
+      </section>
+    </div>
+
+    <section class="card" id="trade" aria-labelledby="tradeh">
+      <h2 id="tradeh">Trade and funding</h2>
+      <p class="lede find" id="tradeFind">Launch support buyers are asking for, what the brand fund can cover, and how past PaleoBar promotions actually performed.</p>
+      <div class="tradegrid">
+        <div>
+          <div class="fund" id="fund"><span class="skeleton">Loading brand fund</span></div>
+          <div class="fund" style="margin-top:16px">
+            <h3>Incremental fund requests</h3>
+            <ul class="frlist" id="frList"></ul>
+            <p class="small muted" id="frHint" style="margin:12px 0 0">Key account managers submit these from their workspace. You approve or decline them here.</p>
+          </div>
+        </div>
+        <div>
+          <div class="insight" id="tradeInsight" hidden></div>
+          <div class="tablewrap"><table class="promos" id="promoTable"></table></div>
+          <div id="frFormWrap"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="askSec" aria-labelledby="askh">
+      <h2 id="askh">Ask Claude about PaleoBar</h2>
+      <p class="lede">Claude reads the same live Salesforce data shown on this page.</p>
+      <div class="chips" id="askChips"></div>
+      <div class="askrow">
+        <input id="askInput" type="text" placeholder="Ask about items, retailers, meetings or funding" aria-label="Question for Claude">
+        <button class="btn primary" id="askBtn" type="button">Ask</button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <details class="calls" id="calls">
+    <summary><span class="sf-lock" style="font-size:15px"><img id="logoSF2" alt="" width="34" height="24">Salesforce calls from this page</span></summary>
+    <p class="small muted">Every number above is read live through the Salesforce connector, running headless: no Salesforce login, no copy of the data. Writes go through the same connector and trigger the same flows and approvals as the Salesforce UI.</p>
+    <ul class="calllist" id="callList"></ul>
+  </details>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="dTitle" role="dialog"></aside>
+<script>
+window.__LOGOS__ = { light: "data:image/png;base64,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", dark: "data:image/png;base64,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", sf: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIiB2aWV3Qm94PSIwIDAgNDAwMCAyODAwIj48cGF0aCBmaWxsPSIjMDBhMWUwIiBkPSJtMTY2NiAzMDdhNzAwIDcwMCAwIDAxMTEyMyAxNDggODY2IDg2NiAwIDAxMTIxMSA3OTVjMSA0ODAtMzg1IDg3MC04NjEgODcwYTg1NyA4NTcgMCAwMS0xNzAtMTggNjMwIDYzMCAwIDAxLTgyNSAyNjAgNzE5IDcxOSAwIDAxLTEzMzctMzMgNjcxIDY3MSAwIDAxLTgwNS02NTljMC0yNTAgMTM0LTQ2OCAzMzMtNTg0YTc3NiA3NzYgMCAwMTEzMzAtNzgwIi8+PC9zdmc+" };</script>
+<script>window.__SNAPSHOT__ = 
+{"retrievedAt":"2026-09-29T20:30:03Z","instance":"https://tpmrcgido262-14.my.salesforce.com","items":[{"Id":"a48KX000000H2HGYA0","Name":"NI-00042","Product2__r":{"Name":"PaleoBar Hot Honey Sea Salt Almond"},"Status__c":"Presented","Launch_Type__c":"Existing Brand - Line Extension","Description__c":"A grain-free bar of roasted almonds and cashews with honey, a touch of chili heat, and flaky sea salt. Sweet, a little spicy, and salty, for the trail, the commute, or the desk.","National_Launch_Date__c":"2027-03-15","Orderable_Date__c":"2027-01-15","Supply_Readiness__c":"On Track","Suggested_Retail_Price__c":11.99,"Samples_Available__c":true,"Sample_Availability_Date__c":"2026-09-16","Consumer_Insight__c":"Shoppers want convenient protein without another dessert-style bar. Sweet-heat and sweet-savory flavors are among the fastest-growing profiles in 2026 snacking, and few nutrition bars offer them.","Key_Differentiators__c":"Hot honey and sea salt on roasted almonds: a sweet-heat, savory-leaning bar in an aisle dominated by chocolate and fruit. Grain-free, gluten-free and non-GMO, from Alpine's paleo line.","Target_Shoppers__c":"Active adults; outdoor enthusiasts; gluten-free shoppers","Target_Store_Count__c":9000.0,"Accepted_Store_Count__c":2540.0,"Distribution_vs_Target__c":28.0,"Retailers_Accepted__c":5.0,"Retailers_Rejected__c":1.0,"Retailers_Pending__c":3.0,"Total_Volume_Accepted__c":1030432.0,"New_Item_Initiative__r":{"Name":"H1 2027 Innovation"},"Case_Count__c":8.0},{"Id":"a48KX000000H2HHYA0","Name":"NI-00043","Product2__r":{"Name":"PaleoBar Acai/Chicken"},"Status__c":"Presented","Launch_Type__c":"Existing Brand - New Platform","Description__c":"Savory-sweet protein bar with free-range chicken, acai and pumpkin seeds. 15g of protein.","National_Launch_Date__c":"2027-03-15","Orderable_Date__c":"2027-01-15","Supply_Readiness__c":"On Track","Suggested_Retail_Price__c":12.99,"Samples_Available__c":true,"Sample_Availability_Date__c":null,"Consumer_Insight__c":"Protein-seeking shoppers are open to savory bars beyond jerky.","Key_Differentiators__c":"Higher protein than fruit bars and lighter than jerky, with a superfruit twist.","Target_Shoppers__c":"High-protein and paleo-diet shoppers","Target_Store_Count__c":4000.0,"Accepted_Store_Count__c":0.0,"Distribution_vs_Target__c":0.0,"Retailers_Accepted__c":0.0,"Retailers_Rejected__c":4.0,"Retailers_Pending__c":2.0,"Total_Volume_Accepted__c":0.0,"New_Item_Initiative__r":{"Name":"H1 2027 Innovation"},"Case_Count__c":8.0},{"Id":"a48KX000000H2HIYA0","Name":"NI-00044","Product2__r":{"Name":"PaleoBar Peanut Butter Choc Chip"},"Status__c":"Presented","Launch_Type__c":"Existing Brand - Line Extension","Description__c":"Grain-free bar with roasted peanuts, dark chocolate chips and a pinch of sea salt. A familiar indulgent flavor with 10g of protein and no refined sugar.","National_Launch_Date__c":"2027-03-15","Orderable_Date__c":"2027-01-15","Supply_Readiness__c":"On Track","Suggested_Retail_Price__c":11.99,"Samples_Available__c":true,"Sample_Availability_Date__c":null,"Consumer_Insight__c":"Shoppers want an indulgent treat that still fits a grain-free, lower-sugar diet.","Key_Differentiators__c":"The best-selling flavor combination in bars, made grain-free with no refined sugar.","Target_Shoppers__c":"Health-conscious snackers and families looking for a better-for-you treat","Target_Store_Count__c":6500.0,"Accepted_Store_Count__c":1611.0,"Distribution_vs_Target__c":25.0,"Retailers_Accepted__c":4.0,"Retailers_Rejected__c":1.0,"Retailers_Pending__c":1.0,"Total_Volume_Accepted__c":540644.0,"New_Item_Initiative__r":{"Name":"H1 2027 Innovation"},"Case_Count__c":8.0},{"Id":"a48KX000000H2HJYA0","Name":"NI-00045","Product2__r":{"Name":"PaleoBar Cold Brew Cacao Crunch"},"Status__c":"Presented","Launch_Type__c":"Existing Brand - New Platform","Description__c":"Grain-free bar with cold brew coffee, cacao nibs and almonds. 80mg of caffeine from real coffee, for the trail, the commute, or the desk.","National_Launch_Date__c":"2027-03-15","Orderable_Date__c":"2027-01-15","Supply_Readiness__c":"On Track","Suggested_Retail_Price__c":12.49,"Samples_Available__c":true,"Sample_Availability_Date__c":null,"Consumer_Insight__c":"Shoppers want functional energy from real food, not another energy drink.","Key_Differentiators__c":"Caffeine from real cold brew coffee in a grain-free bar. A new functional-energy platform for PaleoBar.","Target_Shoppers__c":"Commuters, outdoor enthusiasts, and afternoon-slump snackers","Target_Store_Count__c":5500.0,"Accepted_Store_Count__c":1751.0,"Distribution_vs_Target__c":32.0,"Retailers_Accepted__c":4.0,"Retailers_Rejected__c":1.0,"Retailers_Pending__c":2.0,"Total_Volume_Accepted__c":693732.0,"New_Item_Initiative__r":{"Name":"H1 2027 Innovation"},"Case_Count__c":8.0},{"Id":"a48KX000000H2HLYA0","Name":"NI-00047","Product2__r":{"Name":"PaleoBar Blueberry Crisp"},"Status__c":"Presented","Launch_Type__c":"Existing Brand - Line Extension","Description__c":"Grain-free bar with wild blueberries, almond butter and a crisp seed topping. Bright, fruity and crunchy.","National_Launch_Date__c":"2027-03-15","Orderable_Date__c":"2027-01-15","Supply_Readiness__c":"At Risk","Suggested_Retail_Price__c":11.99,"Samples_Available__c":false,"Sample_Availability_Date__c":"2026-10-20","Consumer_Insight__c":"Fruit-forward bars are growing with morning and breakfast occasions.","Key_Differentiators__c":"Real wild blueberries and a crunchy seed topping for texture that most soft fruit bars lack.","Target_Shoppers__c":"Morning snackers and breakfast-on-the-go shoppers","Target_Store_Count__c":5000.0,"Accepted_Store_Count__c":31.0,"Distribution_vs_Target__c":1.0,"Retailers_Accepted__c":1.0,"Retailers_Rejected__c":0.0,"Retailers_Pending__c":5.0,"Total_Volume_Accepted__c":8060.0,"New_Item_Initiative__r":{"Name":"H1 2027 Innovation"},"Case_Count__c":8.0}],"feedback":[{"Id":"a46KX000000GsZbYAK","Name":"NIF-0280","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sRSYAY","Customer__r":{"Name":"Food Lion"},"Status__c":"Accepted","Proposed_Store_Count__c":1115,"Store_Count__c":1115,"expectedvelocity__c":8,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"Sampling / Demo","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-25","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for full distribution. Coffee-flavored bars are a gap in the current bar set. Wants in-store sampling at launch.","Decision_Date__c":"2026-09-09","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":463840.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZcYAK","Name":"NIF-0281","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sQSYAY","Customer__r":{"Name":"Foodland"},"Status__c":"Accepted","Proposed_Store_Count__c":31,"Store_Count__c":31,"expectedvelocity__c":6,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"None","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-25","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted. Good fit for the commuter crowd.","Decision_Date__c":"2026-09-24","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":9672.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsZdYAK","Name":"NIF-0282","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sRpYAI","Customer__r":{"Name":"Giant"},"Status__c":"Accepted","Proposed_Store_Count__c":190,"Store_Count__c":190,"expectedvelocity__c":7,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"Display","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-22","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted. Replaces a slow-moving granola bar.","Decision_Date__c":"2026-09-23","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":69160.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000GsZeYAK","Name":"NIF-0283","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sR9YAI","Customer__r":{"Name":"Martha's Kiosk"},"Status__c":"Rejected","Proposed_Store_Count__c":40,"Store_Count__c":40,"expectedvelocity__c":8,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Lack of Space","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Kiosk set is full.","Decision_Date__c":"2026-09-18","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":16640.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsZfYAK","Name":"NIF-0284","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sRmYAI","Customer__r":{"Name":"Food 4 Less"},"Status__c":"In Review","Proposed_Store_Count__c":1115,"Store_Count__c":1115,"expectedvelocity__c":8,"Feedback_Theme__c":"Packaging & Format","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Checking caffeine labeling requirements before committing.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":463840.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZgYAK","Name":"NIF-0285","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sPrYAI","Customer__r":{"Name":"Stop & Shop"},"Status__c":"Accepted","Proposed_Store_Count__c":415,"Store_Count__c":415,"expectedvelocity__c":7,"Feedback_Theme__c":"Flavor & Taste","Launch_Support_Requested__c":"TPR","Rejected_Reason__c":null,"Reset_Date__c":"2027-03-01","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for full distribution. Wants a TPR in the launch month.","Decision_Date__c":"2026-09-14","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":151060.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZhYAK","Name":"NIF-0286","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sPrYAI","Customer__r":{"Name":"Stop & Shop"},"Status__c":"Rejected","Proposed_Store_Count__c":415,"Store_Count__c":415,"expectedvelocity__c":8,"Feedback_Theme__c":"Assortment Overlap","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Assortment Conflict","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Rejected because the proposed item overlaps the current savory-snack assortment.","Decision_Date__c":"2026-09-14","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":172640.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZiYAK","Name":"NIF-0287","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sR0YAI","Customer__r":{"Name":"Safeway Inc."},"Status__c":"Accepted","Proposed_Store_Count__c":909,"Store_Count__c":909,"expectedvelocity__c":8,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"Display","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-01","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for the proposed 909-store distribution.","Decision_Date__c":"2026-09-11","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":378144.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsZjYAK","Name":"NIF-0288","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sR9YAI","Customer__r":{"Name":"Martha's Kiosk"},"Status__c":"Accepted","Proposed_Store_Count__c":40,"Store_Count__c":40,"expectedvelocity__c":6,"Feedback_Theme__c":"Packaging & Format","Launch_Support_Requested__c":"None","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-18","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Good fit for small format. Wants a shelf-ready tray.","Decision_Date__c":"2026-09-18","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":12480.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsZkYAK","Name":"NIF-0289","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX00000AKsbeYAD","Customer__r":{"Name":"*Northern Trail Outfitters"},"Status__c":"Draft","Proposed_Store_Count__c":2100,"Store_Count__c":2100,"expectedvelocity__c":7,"Feedback_Theme__c":null,"Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Draft proposal for 2,100 stores at seven units per store per week. Two initial cases per store remain a planning assumption pending buyer reconfirmation.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":764400.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZlYAK","Name":"NIF-0290","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX00000AKsbeYAD","Customer__r":{"Name":"*Northern Trail Outfitters"},"Status__c":"Draft","Proposed_Store_Count__c":2700,"Store_Count__c":2700,"expectedvelocity__c":8,"Feedback_Theme__c":null,"Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Draft proposal. A possible conflict with the current tropical-protein assortment needs buyer review; no final retailer decision is recorded.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":1123200.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZmYAK","Name":"NIF-0291","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX00000AKsbeYAD","Customer__r":{"Name":"*Northern Trail Outfitters"},"Status__c":"Draft","Proposed_Store_Count__c":900,"Store_Count__c":900,"expectedvelocity__c":5,"Feedback_Theme__c":null,"Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":true,"Additional_Coments__c":"Draft 900-store test proposal. Samples were requested in a preliminary discussion; the retailer decision remains open.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":234000.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000GsZuYAK","Name":"NIF-0299","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sQ5YAI","Customer__r":{"Name":"Cub Foods"},"Status__c":"In Review","Proposed_Store_Count__c":106,"Store_Count__c":106,"expectedvelocity__c":8,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Buyer is reviewing shelf space and reset timing.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":44096.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000GsZvYAK","Name":"NIF-0300","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sRSYAY","Customer__r":{"Name":"Food Lion"},"Status__c":"Accepted","Proposed_Store_Count__c":1115,"Store_Count__c":1115,"expectedvelocity__c":8,"Feedback_Theme__c":"Flavor & Taste","Launch_Support_Requested__c":"TPR","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-25","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for the proposed 1,115-store distribution.","Decision_Date__c":"2026-09-09","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":463840.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZwYAK","Name":"NIF-0301","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sPeYAI","Customer__r":{"Name":"Pavilions"},"Status__c":"Accepted","Proposed_Store_Count__c":26,"Store_Count__c":26,"expectedvelocity__c":9,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"Sampling / Demo","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-01","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted. Sweet-heat is trending in the Southern California stores.","Decision_Date__c":"2026-09-22","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":12168.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsZxYAK","Name":"NIF-0302","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sRkYAI","Customer__r":{"Name":"Randalls"},"Status__c":"In Review","Proposed_Store_Count__c":32,"Store_Count__c":32,"expectedvelocity__c":8,"Feedback_Theme__c":"Reset Timing","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Following the Safeway division decision; expects to align with it.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":13312.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000GsZyYAK","Name":"NIF-0303","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX00000AKsbeYAD","Customer__r":{"Name":"*Northern Trail Outfitters"},"Status__c":"Draft","Proposed_Store_Count__c":2700,"Store_Count__c":2700,"expectedvelocity__c":8,"Feedback_Theme__c":null,"Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":true,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Draft 2,700-store proposal. Final retailer commitment, pipeline fill, and any early-ship request require buyer evidence and Operations review.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":1123200.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Internal Review"},{"Id":"a46KX000000GsZzYAK","Name":"NIF-0304","New_Item__c":"a48KX000000H2HGYA0","Customer__c":"001KX0000085sPsYAI","Customer__r":{"Name":"Piggly Wiggly"},"Status__c":"Accepted","Proposed_Store_Count__c":600,"Store_Count__c":450,"expectedvelocity__c":7,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":"TPR","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-08","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for 450 of 600 proposed stores; smallest formats excluded.","Decision_Date__c":"2026-09-19","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":75.0,"Expected_Annual_Volume__c":163800.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000Gsa0YAC","Name":"NIF-0305","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX0000085sQ5YAI","Customer__r":{"Name":"Cub Foods"},"Status__c":"In Review","Proposed_Store_Count__c":106,"Store_Count__c":106,"expectedvelocity__c":5,"Feedback_Theme__c":"Awaiting Samples","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":true,"Additional_Coments__c":"Will not decide until samples arrive.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":27560.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000Gsa1YAC","Name":"NIF-0306","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX0000085sRmYAI","Customer__r":{"Name":"Food 4 Less"},"Status__c":"In Review","Proposed_Store_Count__c":1115,"Store_Count__c":1115,"expectedvelocity__c":5,"Feedback_Theme__c":"Awaiting Samples","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":true,"Additional_Coments__c":"Samples requested at the preliminary meeting; still waiting.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":289900.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000Gsa2YAC","Name":"NIF-0307","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX0000085sRSYAY","Customer__r":{"Name":"Food Lion"},"Status__c":"In Review","Proposed_Store_Count__c":1115,"Store_Count__c":1115,"expectedvelocity__c":5,"Feedback_Theme__c":"Awaiting Samples","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":true,"Additional_Coments__c":"Interested, but needs a taste panel before committing.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":289900.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000Gsa3YAC","Name":"NIF-0308","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX0000085sQSYAY","Customer__r":{"Name":"Foodland"},"Status__c":"Accepted","Proposed_Store_Count__c":31,"Store_Count__c":31,"expectedvelocity__c":5,"Feedback_Theme__c":"Trend Fit","Launch_Support_Requested__c":"None","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-25","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted on the sell sheet for a small test.","Decision_Date__c":"2026-09-24","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":8060.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000Gsa4YAC","Name":"NIF-0309","New_Item__c":"a48KX000000H2HLYA0","Customer__c":"001KX0000085sRpYAI","Customer__r":{"Name":"Giant"},"Status__c":"In Review","Proposed_Store_Count__c":190,"Store_Count__c":190,"expectedvelocity__c":5,"Feedback_Theme__c":"Awaiting Samples","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":true,"Additional_Coments__c":"Samples requested; decision pushed to the November review.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":49400.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000Gsa5YAC","Name":"NIF-0310","New_Item__c":"a48KX000000H2HJYA0","Customer__c":"001KX0000085sQ5YAI","Customer__r":{"Name":"Cub Foods"},"Status__c":"In Review","Proposed_Store_Count__c":106,"Store_Count__c":106,"expectedvelocity__c":8,"Feedback_Theme__c":"Reset Timing","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Buyer is reviewing shelf space and reset timing.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":44096.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000Gsa6YAC","Name":"NIF-0311","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX0000085sQ5YAI","Customer__r":{"Name":"Cub Foods"},"Status__c":"Accepted","Proposed_Store_Count__c":106,"Store_Count__c":80,"expectedvelocity__c":6,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":"None","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-15","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for 80 of 106 stores; already heavy on sweet bars.","Decision_Date__c":"2026-09-17","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":75.0,"Expected_Annual_Volume__c":24960.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000Gsa7YAC","Name":"NIF-0312","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX0000085sRmYAI","Customer__r":{"Name":"Food 4 Less"},"Status__c":"Accepted","Proposed_Store_Count__c":1115,"Store_Count__c":800,"expectedvelocity__c":6,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":"TPR","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-15","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for 800 of 1,115 stores. Too many sweet bars in the smaller formats.","Decision_Date__c":"2026-09-21","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":72.0,"Expected_Annual_Volume__c":249600.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000Gsa8YAC","Name":"NIF-0313","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX0000085sQSYAY","Customer__r":{"Name":"Foodland"},"Status__c":"Accepted","Proposed_Store_Count__c":31,"Store_Count__c":31,"expectedvelocity__c":7,"Feedback_Theme__c":"Flavor & Taste","Launch_Support_Requested__c":"TPR","Rejected_Reason__c":null,"Reset_Date__c":"2027-01-25","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for full distribution.","Decision_Date__c":"2026-09-24","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":100.0,"Expected_Annual_Volume__c":11284.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000Gsa9YAC","Name":"NIF-0314","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX0000085sR9YAI","Customer__r":{"Name":"Martha's Kiosk"},"Status__c":"Rejected","Proposed_Store_Count__c":40,"Store_Count__c":40,"expectedvelocity__c":8,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Lack of Space","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"No space for another sweet bar in the kiosk set.","Decision_Date__c":"2026-09-18","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":16640.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsaAYAS","Name":"NIF-0315","New_Item__c":"a48KX000000H2HIYA0","Customer__c":"001KX0000085sR0YAI","Customer__r":{"Name":"Safeway Inc."},"Status__c":"Accepted","Proposed_Store_Count__c":909,"Store_Count__c":700,"expectedvelocity__c":7,"Feedback_Theme__c":"Shelf Space","Launch_Support_Requested__c":"Ad Feature","Rejected_Reason__c":null,"Reset_Date__c":"2027-02-01","Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Accepted for 700 of 909 stores; left out of the smallest formats.","Decision_Date__c":"2026-09-11","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":77.0,"Expected_Annual_Volume__c":254800.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsaFYAS","Name":"NIF-0320","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX0000085sPrYAI","Customer__r":{"Name":"Stop & Shop"},"Status__c":"Rejected","Proposed_Store_Count__c":415,"Store_Count__c":415,"expectedvelocity__c":8,"Feedback_Theme__c":"Assortment Overlap","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Assortment Conflict","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Meat-snack set was just reset in Q3; no room for another protein bar.","Decision_Date__c":"2026-09-14","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":172640.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsaGYAS","Name":"NIF-0321","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX0000085sR0YAI","Customer__r":{"Name":"Safeway Inc."},"Status__c":"Rejected","Proposed_Store_Count__c":909,"Store_Count__c":909,"expectedvelocity__c":8,"Feedback_Theme__c":"Assortment Overlap","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Duplicative Item","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Too close to existing meat-based bars already on shelf.","Decision_Date__c":"2026-09-11","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":378144.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Email"},{"Id":"a46KX000000GsaHYAS","Name":"NIF-0322","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX0000085sRkYAI","Customer__r":{"Name":"Randalls"},"Status__c":"Rejected","Proposed_Store_Count__c":32,"Store_Count__c":32,"expectedvelocity__c":8,"Feedback_Theme__c":"Assortment Overlap","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Assortment Conflict","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Following Safeway division: conflicts with the current protein set.","Decision_Date__c":"2026-09-16","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":13312.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"},{"Id":"a46KX000000GsaIYAS","Name":"NIF-0323","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX0000085sPsYAI","Customer__r":{"Name":"Piggly Wiggly"},"Status__c":"Rejected","Proposed_Store_Count__c":600,"Store_Count__c":600,"expectedvelocity__c":8,"Feedback_Theme__c":"Price & Value","Launch_Support_Requested__c":null,"Rejected_Reason__c":"Pricing","Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Price point is above what shoppers pay for meat bars in this set.","Decision_Date__c":"2026-09-19","LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":249600.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Line Review"},{"Id":"a46KX000000GsaJYAS","Name":"NIF-0324","New_Item__c":"a48KX000000H2HHYA0","Customer__c":"001KX0000085sPeYAI","Customer__r":{"Name":"Pavilions"},"Status__c":"In Review","Proposed_Store_Count__c":26,"Store_Count__c":26,"expectedvelocity__c":8,"Feedback_Theme__c":"Flavor & Taste","Launch_Support_Requested__c":null,"Rejected_Reason__c":null,"Reset_Date__c":null,"Early_Ship_Required__c":false,"Early_Ship_Date_to_Customer__c":null,"Operations_Approval_Status__c":"Not Required","Pipeline_Fill_Cases__c":null,"Samples_Requested__c":false,"Additional_Coments__c":"Buyer is unsure the fruit-and-meat combination will be understood.","Decision_Date__c":null,"LastModifiedDate":"2026-09-29T15:37:57.000+0000","Distribution_Capture__c":null,"Expected_Annual_Volume__c":10816.0,"Feedback_Due_Date__c":"2026-10-30","Feedback_Source__c":"Buyer Call"}],"funds":[{"Id":"a1HKX000000D3L02AK","Name":"F-0001084","cgcloud__Description__c":"NTO PaleoBar BDF 2026","cgcloud__Valid_From__c":"2026-01-01","cgcloud__Valid_Thru__c":"2026-12-31","cgcloud__Current_Budget__c":750000.0,"cgcloud__Commitments_Total__c":2116693.46,"cgcloud__Available_to_Plan__c":-1366693.46},{"Id":"a1HKX000000D3Kh2AK","Name":"F-0001065","cgcloud__Description__c":"NTO PaleoBar BDF 2025","cgcloud__Valid_From__c":"2025-01-01","cgcloud__Valid_Thru__c":"2025-12-31","cgcloud__Current_Budget__c":500000.0,"cgcloud__Commitments_Total__c":0.0,"cgcloud__Available_to_Plan__c":500000.0}],"promos":[{"Id":"a2VKX000001B3TI2A0","cgcloud__Slogan__c":"Hypermarket Promo","cgcloud__Date_From__c":"2026-01-05","cgcloud__Date_Thru__c":"2026-01-25","cgcloud__Effective_Brands__c":"[\"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":90000,"Actual_Volume__c":79484,"Planned_Spend__c":360000},{"Id":"a2VKX000001B3zo2AC","cgcloud__Slogan__c":"February TPR","cgcloud__Date_From__c":"2026-01-29","cgcloud__Date_Thru__c":"2026-02-22","cgcloud__Effective_Brands__c":"[\"01tKX000003101kYAA\", \"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":276785,"Actual_Volume__c":148113,"Planned_Spend__c":1345532.5},{"Id":"a2VKX000001B3Pe2AK","cgcloud__Slogan__c":"March Feature","cgcloud__Date_From__c":"2026-02-25","cgcloud__Date_Thru__c":"2026-03-17","cgcloud__Effective_Brands__c":"[\"01tKX000003101lYAA\", \"01tKX000003101iYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":118343,"Actual_Volume__c":44617,"Planned_Spend__c":412480.22},{"Id":"a2VKX000001B3VI2A0","cgcloud__Slogan__c":"Supermarket Promo","cgcloud__Date_From__c":"2026-03-02","cgcloud__Date_Thru__c":"2026-03-22","cgcloud__Effective_Brands__c":"[\"01tKX000003101kYAA\", \"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":77420,"Actual_Volume__c":159082,"Planned_Spend__c":464520},{"Id":"a2VKX000001B3Uk2AK","cgcloud__Slogan__c":"March Display Promotion","cgcloud__Date_From__c":"2026-03-09","cgcloud__Date_Thru__c":"2026-04-05","cgcloud__Effective_Brands__c":"[\"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":114000,"Actual_Volume__c":14014,"Planned_Spend__c":542000},{"Id":"a2VKX000001B3TH2A0","cgcloud__Slogan__c":"Hypermarket Promo","cgcloud__Date_From__c":"2026-04-06","cgcloud__Date_Thru__c":"2026-04-26","cgcloud__Effective_Brands__c":"[\"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":9733,"Actual_Volume__c":56988,"Planned_Spend__c":58398},{"Id":"a2VKX000001B3Qn2AK","cgcloud__Slogan__c":"Easter Promotion","cgcloud__Date_From__c":"2026-04-06","cgcloud__Date_Thru__c":"2026-04-19","cgcloud__Effective_Brands__c":"[\"01tKX000003101lYAA\", \"01tKX000003101iYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":41250,"Actual_Volume__c":30486,"Planned_Spend__c":124420.26},{"Id":"a2VKX000001B3ss2AC","cgcloud__Slogan__c":"May TPR","cgcloud__Date_From__c":"2026-05-03","cgcloud__Date_Thru__c":"2026-05-23","cgcloud__Effective_Brands__c":"[\"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":175000,"Actual_Volume__c":68510,"Planned_Spend__c":1325000},{"Id":"a2VKX000001B3Od2AK","cgcloud__Slogan__c":"Minimarket Promo","cgcloud__Date_From__c":"2026-05-18","cgcloud__Date_Thru__c":"2026-06-07","cgcloud__Effective_Brands__c":"[\"01tKX000003101iYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":99986,"Actual_Volume__c":99602,"Planned_Spend__c":499930},{"Id":"a2VKX000001B3Pt2AK","cgcloud__Slogan__c":"June Display Promotion","cgcloud__Date_From__c":"2026-06-08","cgcloud__Date_Thru__c":"2026-07-05","cgcloud__Effective_Brands__c":"[\"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":114000,"Actual_Volume__c":14014,"Planned_Spend__c":542000},{"Id":"a2VKX000001B3R12AK","cgcloud__Slogan__c":"Summer Promotion","cgcloud__Date_From__c":"2026-06-08","cgcloud__Date_Thru__c":"2026-06-21","cgcloud__Effective_Brands__c":"[\"01tKX000003101lYAA\", \"01tKX000003101iYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":42118,"Actual_Volume__c":41127,"Planned_Spend__c":126946.92},{"Id":"a2VKX000001B3QE2A0","cgcloud__Slogan__c":"Sub Account TPRs","cgcloud__Date_From__c":"2026-07-06","cgcloud__Date_Thru__c":"2026-07-26","cgcloud__Effective_Brands__c":"[\"01tKX000003101lYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":140000,"Actual_Volume__c":56651,"Planned_Spend__c":420000},{"Id":"a2VKX000001B3Oe2AK","cgcloud__Slogan__c":"August Display Promotion","cgcloud__Date_From__c":"2026-08-12","cgcloud__Date_Thru__c":"2026-09-08","cgcloud__Effective_Brands__c":"[\"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":114000,"Actual_Volume__c":9520,"Planned_Spend__c":542000},{"Id":"a2VKX000001B3U72AK","cgcloud__Slogan__c":"August TPR","cgcloud__Date_From__c":"2026-08-17","cgcloud__Date_Thru__c":"2026-09-06","cgcloud__Effective_Brands__c":"[\"01tKX000003101lYAA\", \"01tKX000003101jYAA\"]","Mechanic__c":"Price Cut","Planned_Volume__c":200000,"Actual_Volume__c":73899,"Planned_Spend__c":600000}],"frs":[],"events":[{"Id":"00UKX0000043Thh2AE","Subject":"NTO H1 2027 New Item Review","StartDateTime":"2026-10-15T17:00:00.000+0000","Location":"Microsoft Teams: https://teams.example/NTO-H1-2027-review","AccountId":"001KX00000AKsbeYAD","Account":{"Name":"*Northern Trail Outfitters"},"Who":{"Name":"Ben Dailey"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thm2AE","Subject":"NTO H1 2027 execution checkpoint","StartDateTime":"2026-10-19T17:00:00.000+0000","Location":"Microsoft Teams","AccountId":"001KX00000AKsbeYAD","Account":{"Name":"*Northern Trail Outfitters"},"Who":{"Name":"Ben Dailey"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thr2AE","Subject":"Food Lion | Snack & Nutrition Bar Category Review (H1 2027)","StartDateTime":"2026-10-22T14:00:00.000+0000","Location":"Food Lion Store Support Center, Conf Rm 2B","AccountId":"001KX0000085sRSYAY","Account":{"Name":"Food Lion"},"Who":{"Name":"Tanya Whitfield"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Ths2AE","Subject":"Cub Foods / Alpine Nutrition - Nutrition Bar Review","StartDateTime":"2026-10-27T18:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sQ5YAI","Account":{"Name":"Cub Foods"},"Who":{"Name":"Marcus Lindqvist"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Tht2AE","Subject":"Pavilions buyer call: PaleoBar Acai/Chicken","StartDateTime":"2026-10-29T18:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sPeYAI","Account":{"Name":"Pavilions"},"Who":{"Name":"Grace Okafor"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thu2AE","Subject":"Albertsons Safeway | Snacks Category Review - Spring Reset","StartDateTime":"2026-11-03T16:00:00.000+0000","Location":"Safeway Division Office, Conf Rm Summit","AccountId":"001KX0000085sR0YAI","Account":{"Name":"Safeway Inc."},"Who":{"Name":"Nathan Brooks"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thv2AE","Subject":"Food 4 Less Line Review Follow-up (Blueberry Crisp / Cold Brew)","StartDateTime":"2026-11-05T18:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sRmYAI","Account":{"Name":"Food 4 Less"},"Who":{"Name":"Priya Raman"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thw2AE","Subject":"Randalls category call - follow up to Safeway division decision","StartDateTime":"2026-11-10T20:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sRkYAI","Account":{"Name":"Randalls"},"Who":{"Name":"Carla Mendez"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thx2AE","Subject":"Giant Nutrition Bar Line Review","StartDateTime":"2026-11-12T18:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sRpYAI","Account":{"Name":"Giant"},"Who":{"Name":"Derek Halloran"},"Owner":{"Name":"James Durbin (Admin)"}},{"Id":"00UKX0000043Thy2AE","Subject":"Piggly Wiggly | PaleoBar launch planning (Feb TPR)","StartDateTime":"2026-11-18T15:00:00.000+0000","Location":"Microsoft Teams Meeting","AccountId":"001KX0000085sPsYAI","Account":{"Name":"Piggly Wiggly"},"Who":{"Name":"Leah Donnelly"},"Owner":{"Name":"James Durbin (Admin)"}}],"tasks":[]};</script>
+<script>
+(function () {
+  "use strict";
+  var L = window.__LOGOS__ || {};
+  document.getElementById("logoL").src = L.light || "";
+  document.getElementById("logoD").src = L.dark || "";
+  if (L.sf) { document.getElementById("logoSF").src = L.sf; document.getElementById("logoSF2").src = L.sf; } else { document.getElementById("sfLock").hidden = true; document.getElementById("sfSep").hidden = true; }
+
+  /* ---------- Salesforce contract (Headless 360 connector) ---------- */
+  var SF = "Salesforce", RT = "dispatch_readonly", WT = "dispatch";
+  var API = "/services/data/v67.0/query";
+  var BRAND = "01tKX000003101jYAA";          // PaleoBar brand (Product2, level Brand)
+  var NTO = "001KX00000AKsbeYAD";
+  var INSTANCE = "https://tpmrcgido262-14.my.salesforce.com";
+  var Q = {
+    items: "SELECT Id, Name, Product2__r.Name, Status__c, Launch_Type__c, Description__c, National_Launch_Date__c, Orderable_Date__c, Supply_Readiness__c, Suggested_Retail_Price__c, Samples_Available__c, Sample_Availability_Date__c, Consumer_Insight__c, Key_Differentiators__c, Target_Shoppers__c, Target_Store_Count__c, Case_Count__c, Accepted_Store_Count__c, Distribution_vs_Target__c, Retailers_Accepted__c, Retailers_Rejected__c, Retailers_Pending__c, Total_Volume_Accepted__c, New_Item_Initiative__r.Name FROM New_Item__c WHERE Product2__r.cgcloud__Criterion_3_Product__c = '" + BRAND + "' ORDER BY Name",
+    feedback: "SELECT Id, Name, New_Item__c, Customer__c, Customer__r.Name, Status__c, Proposed_Store_Count__c, Store_Count__c, Distribution_Capture__c, expectedvelocity__c, Expected_Annual_Volume__c, Feedback_Theme__c, Launch_Support_Requested__c, Rejected_Reason__c, Decision_Date__c, Feedback_Due_Date__c, Reset_Date__c, Required_Inventory_on_Hand_Date__c, Early_Ship_Required__c, Early_Ship_Date_to_Customer__c, Operations_Approval_Status__c, Pipeline_Fill_Cases__c, Samples_Requested__c, Feedback_Source__c, Additional_Coments__c, LastModifiedDate FROM New_Item_Feedback__c WHERE New_Item__r.Product2__r.cgcloud__Criterion_3_Product__c = '" + BRAND + "' ORDER BY Name",
+    funds: "SELECT Id, Name, cgcloud__Description__c, cgcloud__Anchor_Account__r.Name, cgcloud__Fund_Template_Description__c, cgcloud__Valid_From__c, cgcloud__Valid_Thru__c, cgcloud__Current_Budget__c, cgcloud__Commitments_Total__c, cgcloud__Available_to_Plan__c FROM cgcloud__Fund__c WHERE cgcloud__Anchor_Product__c = '" + BRAND + "' ORDER BY cgcloud__Valid_Thru__c DESC",
+    promos: "SELECT Id, cgcloud__Slogan__c, cgcloud__Anchor_Account__r.Name, cgcloud__Date_From__c, cgcloud__Date_Thru__c, cgcloud__Effective_Brands__c, Mechanic__c, Planned_Volume__c, Actual_Volume__c, Planned_Spend__c, Planned_ROI__c FROM cgcloud__Promotion__c WHERE cgcloud__Anchor_Account__c = '" + NTO + "' AND cgcloud__Date_From__c >= 2026-01-01 AND cgcloud__Date_Thru__c < TODAY AND Planned_Spend__c > 0 ORDER BY cgcloud__Date_From__c",
+    frs: "SELECT Id, Name, Customer__c, Customer__r.Name, Status__c, Event_Type__c, Event_Description__c, Event_Start_Date__c, Event_End_Date__c, Requested_Amount__c, Amount_Requested__c, Shipment_Volume__c, RPC__c, Request_Due_Date__c, Request_Objective__c, Sales_Finance_Comments__c, CSL_Comments__c, Fund__c, CreatedDate FROM Fund_Request__c WHERE Fund__r.cgcloud__Anchor_Product__c = '" + BRAND + "' OR Request_Objective__c LIKE '%PaleoBar%' ORDER BY CreatedDate DESC LIMIT 10"
+  };
+  var LABEL = { items: "New_Item__c", feedback: "New_Item_Feedback__c", funds: "cgcloud__Fund__c", promos: "cgcloud__Promotion__c", frs: "Fund_Request__c", events: "Event", tasks: "Task" };
+  function inList(ids) { return ids.filter(function (v, i, arr) { return v && arr.indexOf(v) === i && /^[a-zA-Z0-9]{15,18}$/.test(v); }).map(function (v) { return "'" + v + "'"; }).join(","); }
+
+  /* Representative trade history for retailers other than NTO (illustrative figures, labeled in the UI). */
+  var REPRESENTATIVE = [
+    { retailer: "Food Lion", name: "Spring TPR", from: "2026-03-02", thru: "2026-03-22", mech: "TPR", plan: 42000, actual: 39500, spend: 96000 },
+    { retailer: "Piggly Wiggly", name: "Paleo Month TPR", from: "2026-06-01", thru: "2026-06-21", mech: "TPR", plan: 22000, actual: 18700, spend: 38000 },
+    { retailer: "Safeway", name: "Protein Bar Display", from: "2026-05-04", thru: "2026-05-31", mech: "Display", plan: 36000, actual: 21800, spend: 118000 },
+    { retailer: "Stop & Shop", name: "Summer TPR", from: "2026-07-06", thru: "2026-07-26", mech: "TPR", plan: 18500, actual: 17900, spend: 44000 },
+    { retailer: "Giant", name: "Back to School Feature", from: "2026-08-03", thru: "2026-08-23", mech: "Ad Feature", plan: 9200, actual: 10100, spend: 21500 }
+  ];
+
+  var SNAP = window.__SNAPSHOT__ || null;
+  var D = { items: [], feedback: [], funds: [], promos: [], frs: [], events: [], tasks: [] };
+  var source = "none";
+  if (SNAP) { Object.keys(D).forEach(function (k) { D[k] = (SNAP[k] || []).slice(); }); source = "snapshot"; }
+  function snapTime() { var d = SNAP && new Date(SNAP.retrievedAt); return d && !isNaN(d) ? MON[d.getMonth()] + " " + d.getDate() + ", " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : ""; }
+  function snapStatus() { setStatus("snap", "Salesforce snapshot, read " + snapTime()); }
+  var ERR = {};
+  var mcpP = null, sampleFn = null, loadedAt = 0, loading = false;
+  var ui = { promoAll: false, themeItem: "all", frOpen: false, frStage: "edit", frDraft: null, frMsg: "", sample: null };
+
+  /* ---------- helpers ---------- */
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function num(n) { return n == null || isNaN(n) ? 0 : Number(n); }
+  function fmt(n) { return Math.round(num(n)).toLocaleString("en-US"); }
+  function money(n) { var v = num(n), a = Math.abs(v), s = v < 0 ? "-" : ""; if (a >= 1e6) return s + "$" + (a / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M"; if (a >= 1e3) return s + "$" + Math.round(a / 1e3) + "K"; return s + "$" + Math.round(a); }
+  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function pd(s) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ""); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+  function fDate(s, noYear) { var d = pd(s); return d ? MON[d.getMonth()] + " " + d.getDate() + (noYear ? "" : ", " + d.getFullYear()) : "Not set"; }
+  function pdt(s) { return s ? new Date(String(s).replace(/\+0000$/, "Z")) : null; }
+  function rel(s) {
+    var d = pdt(s); if (!d || isNaN(d)) return "";
+    var m = Math.round((Date.now() - d.getTime()) / 60000);
+    if (m < 1) return "Just now"; if (m < 60) return m + " min ago";
+    var h = Math.round(m / 60); if (h < 24) return h + (h === 1 ? " hour ago" : " hours ago");
+    return MON[d.getMonth()] + " " + d.getDate();
+  }
+  function isFresh(r) { var d = pdt(r.LastModifiedDate); return d && (Date.now() - d.getTime()) < 2 * 3600 * 1000 && r.Status__c !== "Draft"; }
+  function retailer(r) { return String((r.Customer__r && r.Customer__r.Name) || "Unknown").replace(/^[*+]+/, ""); }
+  function itemName(it) { return String((it.Product2__r && it.Product2__r.Name) || it.Name).replace(/^PaleoBar\s+/, ""); }
+  function plain(html) { if (!html) return ""; try { return (new DOMParser().parseFromString(String(html), "text/html").body.textContent || "").trim(); } catch (e) { return String(html); } }
+  function strip(o) { if (Array.isArray(o)) return o.map(strip); if (o && typeof o === "object") { var r = {}; for (var k in o) if (k !== "attributes") r[k] = strip(o[k]); return r; } return o; }
+  function recLink(id, label, what) { if (!id) return ""; return '<a class="rec" href="' + esc(INSTANCE + "/" + id) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc("Open " + (what || label) + " in Salesforce (opens in a new tab)") + '" title="Open in Salesforce"><span class="src"><b aria-hidden="true"></b>' + esc(label) + '</span></a>'; }
+  function opsStatus(r) { var s = r.Operations_Approval_Status__c; return !s || s === "Not Required" ? "Not submitted" : s; }
+  function stCls(s) { return s === "Accepted" ? "acc" : s === "Rejected" ? "rej" : s === "In Review" ? "rev" : "draft"; }
+  function stLabel(s) { return s === "In Review" ? "Deciding" : s === "Draft" ? "Not decided" : s; }
+
+  /* ---------- call log ---------- */
+  var LOG = [];
+  function logCall(e) { e.at = new Date(); LOG.unshift(e); if (LOG.length > 60) LOG.pop(); renderCalls(); }
+  function renderCalls() {
+    $("callList").innerHTML = LOG.map(function (e) {
+      return '<li><span class="m' + (e.write ? " w" : "") + '">' + esc(e.method) + '</span><span>' + esc(e.target) + (e.ok ? "" : " (failed)") + '<span class="muted"> ' + esc(e.detail || "") + '</span></span><span class="muted">' + e.ms + ' ms</span></li>';
+    }).join("") || '<li class="muted">No calls yet.</li>';
+  }
+
+  /* ---------- connector ---------- */
+  function classify(err) {
+    var code = (err && err.code) || "error", msg = (err && err.message) || "";
+    var m = {
+      needs_reauth: "Your Salesforce connector needs to be reconnected: claude.ai Settings, Connectors, Salesforce.",
+      server_not_connected: "No Salesforce connector is connected for your account. Add it in claude.ai Settings, Connectors.",
+      server_not_found: "The Salesforce connector could not be found. Reconnect it in claude.ai Settings, Connectors.",
+      selection_required: "You have more than one Salesforce connection. Pick one when Claude asks, then choose Refresh.",
+      not_in_manifest: "Salesforce is turned off for this page. Turn it back on from this artifact's Permissions menu, then choose Refresh.",
+      consent_required: "Salesforce hasn't been allowed for this page yet. Choose Refresh and allow it when asked.",
+      not_granted: "This view of the page can't use connectors. Open it on claude.ai while signed in.",
+      capability_disabled: "This view of the page can't use connectors. Open it on claude.ai while signed in.",
+      capability_removed: "This view of the page can't use connectors. Open it on claude.ai while signed in.",
+      blocked_by_policy: "Your organization's policy blocks Salesforce calls from this page.",
+      approval_required: "Your organization requires approval for Salesforce calls, which pages can't request yet.",
+      server_unavailable: "Salesforce didn't answer in time. Choose Refresh in a moment.",
+      rate_limited: "Too many Salesforce calls just now. Choose Refresh in a moment."
+    };
+    return (m[code] || ("Salesforce returned an error: " + (msg || code).slice(0, 160))) + " (" + code + ")";
+  }
+  function payloadOf(res) {
+    var p = res && res.payload;
+    if (typeof p === "string") { try { p = JSON.parse(p); } catch (e) { } }
+    if (p && typeof p === "object" && p.status_code && p.status_code >= 400) throw { code: "sf_error", message: "status " + p.status_code + " " + JSON.stringify(p.body || p).slice(0, 300) };
+    if (p && typeof p === "object" && p.error_code) throw { code: "sf_error", message: (p.message || "") + " " + String(p.body || "").slice(0, 300) };
+    return p;
+  }
+  function getMcp() { if (!mcpP) mcpP = (window.claude && window.claude.use ? window.claude.use("mcp") : Promise.resolve(null)).catch(function () { return null; }); return mcpP; }
+  async function query(mcp, key, soql) {
+    var t0 = performance.now();
+    try {
+      var res, attempt = 0;
+      while (true) {
+        try { res = await mcp.callTool(SF, RT, { url: API, method: "GET", queryParams: { q: soql || Q[key] } }, { cache: false }); break; }
+        catch (e) { if (e && e.retryable && attempt < 3) { attempt++; await new Promise(function (r) { setTimeout(r, Math.min(e.retryAfterMs || 1500 * attempt, 8000)); }); continue; } throw e; }
+      }
+      var p = payloadOf(res), body = p && (p.body || p);
+      if (!body || !Array.isArray(body.records)) throw { code: "bad_shape", message: "Unexpected response shape" };
+      var recs = strip(body.records);
+      logCall({ method: "GET", target: LABEL[key], detail: recs.length + " record" + (recs.length === 1 ? "" : "s"), ms: Math.round(performance.now() - t0), ok: true });
+      return recs;
+    } catch (err) {
+      logCall({ method: "GET", target: LABEL[key], detail: (err && err.code) || "error", ms: Math.round(performance.now() - t0), ok: false });
+      throw err;
+    }
+  }
+
+  function setStatus(kind, text) {
+    $("status").innerHTML = '<span class="dot' + (kind === "live" ? " live" : kind === "err" ? " err" : kind === "snap" ? " snap" : "") + '"></span>' + esc(text);
+  }
+
+  async function load() {
+    if (loading) return; loading = true;
+    $("refresh").disabled = true; setStatus("loading", source === "snapshot" ? "Refreshing from Salesforce" : "Reading Salesforce");
+    var mcp = await getMcp();
+    // Check this page's Salesforce permission before calling, and ask once if needed.
+    var perm = null, pstate = "unknown";
+    try { perm = await window.claude.use("permissions"); } catch (e) { perm = null; }
+    if (perm && mcp) {
+      try { pstate = await perm.state("mcp:" + SF); } catch (e) { pstate = "unknown"; }
+      if (pstate === "prompt") {
+        setStatus("loading", "Waiting for you to allow Salesforce");
+        try { var rq = await perm.request(["mcp:" + SF]); pstate = rq && rq["mcp:" + SF] || pstate; } catch (e) { }
+      }
+      if (pstate === "denied") {
+        loading = false; $("refresh").disabled = false;
+        if (source === "snapshot") snapStatus(); else setStatus("err", "Salesforce not allowed");
+        $("notice").innerHTML = '<p class="notice"><b>Salesforce is turned off for this page</b>, so it shows records read on ' + esc(snapTime()) + '. Open this artifact\'s Permissions menu, allow Salesforce, then choose Refresh.</p>';
+        return;
+      }
+    }
+    if (!mcp) {
+      loading = false; $("refresh").disabled = false;
+      if (source === "snapshot") { snapStatus(); $("notice").innerHTML = '<p class="notice">This view can\'t reach your Salesforce connector, so it shows records read on ' + esc(snapTime()) + '. Open the page on claude.ai while signed in, with the Salesforce connector connected, then choose Refresh.</p>'; }
+      else { setStatus("err", "Not connected"); $("headline").textContent = "Open this page in Claude to see live PaleoBar data"; $("notice").innerHTML = '<p class="notice">This workspace reads Salesforce through your Salesforce connector. Open it in Claude with the Salesforce connector added in Settings, Connectors.</p>'; }
+      return;
+    }
+    var keys = ["items", "feedback", "funds", "promos", "frs"];
+    // First call alone (it may carry the consent prompt), then the rest in parallel.
+    var first = await Promise.allSettled([query(mcp, keys[0])]);
+    var res = first.concat(await Promise.allSettled(keys.slice(1).map(function (k) { return query(mcp, k); })));
+    var firstErr = null, got = {}; ERR = {};
+    res.forEach(function (r, i) { if (r.status === "fulfilled") got[keys[i]] = r.value; else { ERR[keys[i]] = r.reason; firstErr = firstErr || r.reason; } });
+    // Phase 2: meetings and sample tasks depend on the retailers and items found above
+    var fbSrc = got.feedback || D.feedback, itSrc = got.items || D.items;
+    var acctIds = inList(fbSrc.map(function (r) { return r.Customer__c; })), itemIds = inList(itSrc.map(function (i) { return i.Id; }));
+    var r2 = await Promise.allSettled([
+      acctIds ? query(mcp, "events", "SELECT Id, Subject, StartDateTime, EndDateTime, Location, AccountId, Account.Name, Who.Name, Owner.Name FROM Event WHERE StartDateTime >= TODAY AND AccountId IN (" + acctIds + ") ORDER BY StartDateTime LIMIT 10") : Promise.resolve([]),
+      itemIds ? query(mcp, "tasks", "SELECT Id, Subject, Status, ActivityDate, WhatId, CreatedDate FROM Task WHERE WhatId IN (" + itemIds + ") ORDER BY CreatedDate DESC LIMIT 20") : Promise.resolve([])
+    ]);
+    if (r2[0].status === "fulfilled") got.events = r2[0].value; else { ERR.events = r2[0].reason; firstErr = firstErr || r2[0].reason; }
+    if (r2[1].status === "fulfilled") got.tasks = r2[1].value; else ERR.tasks = r2[1].reason;
+    loadedAt = Date.now(); loading = false; $("refresh").disabled = false;
+    var liveCore = got.items && got.feedback;
+    Object.keys(got).forEach(function (k) { D[k] = got[k]; });
+    if (liveCore) { source = "live"; ERR = firstErr ? ERR : {}; }
+    if (!liveCore) {
+      if (source === "snapshot") { snapStatus(); $("notice").innerHTML = '<p class="notice">Couldn\'t refresh live, so this shows records read from Salesforce on ' + esc(snapTime()) + '. ' + esc(classify(firstErr)) + '</p>'; render(); }
+      else { setStatus("err", "Couldn't read Salesforce"); $("notice").innerHTML = '<p class="notice">' + esc(classify(firstErr)) + '</p>'; }
+      return;
+    }
+    $("notice").innerHTML = firstErr ? '<p class="notice">Some sections could not be refreshed live and show the last Salesforce read. ' + esc(classify(firstErr)) + '</p>' : "";
+    setStatus("live", "Live from Salesforce, read " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
+    render();
+  }
+
+  /* ---------- model ---------- */
+  function rowsFor(it) { return D.feedback.filter(function (f) { return f.New_Item__c === it.Id; }); }
+  function stats(it) {
+    var rows = rowsFor(it), s = { it: it, name: itemName(it), rows: rows, acc: [], rej: [], pend: [], committed: 0, pendingStores: 0, units: 0, target: num(it.Target_Store_Count__c) };
+    rows.forEach(function (r) {
+      if (r.Status__c === "Accepted") { s.acc.push(r); s.committed += num(r.Store_Count__c); s.units += num(r.Store_Count__c) * num(r.expectedvelocity__c) * 52; }
+      else if (r.Status__c === "Rejected") s.rej.push(r);
+      else { s.pend.push(r); s.pendingStores += num(r.Proposed_Store_Count__c || r.Store_Count__c); }
+    });
+    s.acc.sort(function (a, b) { return (pdt(a.LastModifiedDate) || 0) - (pdt(b.LastModifiedDate) || 0); });
+    s.pct = s.target ? Math.round(100 * s.committed / s.target) : 0;
+    return s;
+  }
+  function allStats() { return D.items.map(stats); }
+
+  /* ---------- render ---------- */
+  function render() {
+    var S = allStats();
+    var P = paths(S);
+    renderHero(S); renderPath(S, P); renderBanner(); renderCallouts(S, P); renderCalendar(S); renderFlows();
+    renderGrid(S); renderChips(S); renderWhy(S); renderReady(S); renderTrade(S); renderAskChips();
+  }
+
+  function itemsById() { var m = {}; D.items.forEach(function (i) { m[i.Id] = itemName(i); }); return m; }
+  function renderHero(S) {
+    var cycle = D.items[0] && D.items[0].New_Item_Initiative__r ? D.items[0].New_Item_Initiative__r.Name : "H1 2027 Innovation";
+    $("cycle").textContent = cycle.replace(/Innovation$/, "innovation cycle") + ", " + S.length + " PaleoBar items";
+    var total = S.reduce(function (a, s) { return a + s.committed; }, 0);
+    var retailers = {}; D.feedback.forEach(function (r) { if (r.Status__c === "Accepted") retailers[r.Customer__c] = 1; });
+    $("headline").textContent = fmt(total) + " stores committed to PaleoBar's " + cycle.replace(/\s*Innovation$/, "") + " lineup";
+    var lead = S.slice().sort(function (a, b) { return b.committed - a.committed; })[0];
+    var zero = S.filter(function (s) { return s.acc.length === 0 && s.rej.length > 0; }).sort(function (a, b) { return b.rej.length - a.rej.length; })[0];
+    var open = D.feedback.filter(function (r) { return r.Status__c === "Draft" || r.Status__c === "In Review"; });
+    var openStores = open.reduce(function (a, r) { return a + num(r.Proposed_Store_Count__c || r.Store_Count__c); }, 0);
+    var parts = [];
+    if (lead) parts.push(lead.name + " leads with " + fmt(lead.committed) + " stores, " + lead.pct + "% of its target.");
+    if (zero) parts.push(zero.name + " hasn't been accepted anywhere; " + zero.rej.length + " of " + zero.rows.length + " retailers said no.");
+    parts.push(Object.keys(retailers).length + " retailers have committed so far, and " + open.length + " decisions worth up to " + fmt(openStores) + " more store placements are still open.");
+    $("headsub").textContent = parts.join(" ");
+
+    var decided = D.feedback.filter(function (r) { return r.Status__c !== "Draft"; }).sort(function (a, b) { return (isFresh(b) - isFresh(a)) || String(b.Decision_Date__c || "").localeCompare(String(a.Decision_Date__c || "")) || ((pdt(b.LastModifiedDate) || 0) - (pdt(a.LastModifiedDate) || 0)); }).filter(function (r, i, arr) { return isFresh(r) || !arr.slice(0, i).some(function (x) { return x.Customer__c === r.Customer__c && !isFresh(x); }); }).slice(0, 4);
+    var ib = itemsById();
+    $("recentList").innerHTML = decided.map(function (r) {
+      var verb = r.Status__c === "Accepted" ? "accepted " + ib[r.New_Item__c] + " at " + fmt(r.Store_Count__c) + " stores" : r.Status__c === "Rejected" ? "rejected " + ib[r.New_Item__c] + (r.Rejected_Reason__c ? " (" + r.Rejected_Reason__c.toLowerCase() + ")" : "") : "is reviewing " + ib[r.New_Item__c];
+      var when = isFresh(r) ? rel(r.LastModifiedDate) : r.Decision_Date__c ? "Decided " + fDate(r.Decision_Date__c, true) : "Under review";
+      return '<li><b>' + esc(retailer(r)) + '</b> ' + esc(verb) + '<span class="when">' + esc(when) + ' ' + recLink(r.Id, r.Name, r.Name + " feedback record") + '</span></li>';
+    }).join("");
+    $("recent").hidden = !decided.length;
+  }
+
+  /* ---------- path to target ---------- */
+  function paths(S) {
+    var R = retailerOrder(), P = {};
+    S.forEach(function (s) {
+      var np = R.filter(function (r) { return !s.rows.some(function (x) { return x.Customer__c === r.id; }); });
+      var npStores = np.reduce(function (a, r) { return a + r.stores; }, 0);
+      var ceiling = s.committed + s.pendingStores + npStores;
+      P[s.it.Id] = { np: np, npStores: npStores, ceiling: ceiling, short: Math.max(0, s.target - ceiling), need: Math.max(0, s.target - s.committed) };
+    });
+    return P;
+  }
+  function renderPath(S, P) {
+    $("build").innerHTML = S.map(function (s) {
+      var p = P[s.it.Id], scale = Math.max(s.target, p.ceiling, 1);
+      var segs = s.acc.map(function (r) {
+        var w = 100 * num(r.Store_Count__c) / scale;
+        return '<span class="seg acc' + (isFresh(r) ? " fresh" : "") + '" style="width:' + w.toFixed(3) + '%" title="' + esc(retailer(r) + ": " + fmt(r.Store_Count__c) + " stores committed") + '"></span>';
+      }).join("");
+      if (s.pendingStores) segs += '<span class="seg pend" style="width:' + (100 * s.pendingStores / scale).toFixed(3) + '%" title="' + esc(fmt(s.pendingStores) + " stores still deciding") + '"></span>';
+      if (p.npStores) segs += '<span class="seg np" style="width:' + (100 * p.npStores / scale).toFixed(3) + '%" title="' + esc("Not yet presented: " + p.np.map(function (r) { return r.name; }).join(", ")) + '"></span>';
+      var gap;
+      if (s.committed >= s.target && s.target) gap = "Target reached.";
+      else if (!p.short) gap = "Reachable with retailers already in play: needs " + fmt(p.need) + " more stores" + (s.pend.length ? " from " + s.pend.length + " deciding" : "") + (p.np.length ? (s.pend.length ? " and " : " from ") + p.np.length + " not yet presented" : "") + ".";
+      else gap = "Even if every retailer in play says yes, " + s.name + " reaches " + fmt(p.ceiling) + " stores (" + (s.target ? Math.round(100 * p.ceiling / s.target) : 0) + "%)." + (p.np.length ? " Not yet presented to " + p.np.map(function (r) { return r.name; }).join(", ") + "." : "") + ' <span class="warnword">The last ' + fmt(p.short) + " stores need new retail partners.</span>";
+      return '<div class="brow"><div class="bname">' + esc(s.name) + '<small>' + fmt(s.committed) + " of " + fmt(s.target) + ' stores</small></div>' +
+        '<div class="track" role="img" aria-label="' + esc(s.name + ": " + fmt(s.committed) + " of " + fmt(s.target) + " target stores committed; ceiling " + fmt(p.ceiling)) + '">' + segs + '</div>' +
+        '<div class="bpct">' + s.pct + '%<small>of target</small></div><div class="gapline">' + (gap.indexOf("<span") >= 0 ? gap.replace(/^([^<]*)/, function (m) { return esc(m); }) : esc(gap)) + '</div></div>';
+    }).join("");
+    $("legend").hidden = !S.length;
+    var reach = S.filter(function (s) { return !P[s.it.Id].short; }).length;
+    var worst = S.slice().sort(function (a, b) { return P[b.it.Id].short - P[a.it.Id].short; })[0];
+    if (S.length) $("pathFind").innerHTML = "<b>" + reach + " of " + S.length + " items</b> can still reach target with retailers already in play." + (worst && P[worst.it.Id].short ? " " + esc(worst.name) + " is " + fmt(P[worst.it.Id].short) + " stores short even if everyone says yes." : "");
+  }
+
+  /* ---------- change banner ---------- */
+  function renderBanner() {
+    var fresh = D.feedback.filter(isFresh), b = $("banner");
+    if (!fresh.length) { b.className = "banner"; b.innerHTML = ""; return; }
+    var by = {}; fresh.forEach(function (r) { (by[r.Customer__c] = by[r.Customer__c] || []).push(r); });
+    var top = Object.keys(by).sort(function (x, y) { return by[y].length - by[x].length; })[0], rows = by[top], ib = itemsById();
+    var added = rows.reduce(function (a, r) { return a + (r.Status__c === "Accepted" ? num(r.Store_Count__c) : 0); }, 0);
+    var parts = rows.map(function (r) { return ib[r.New_Item__c] + (r.Status__c === "Accepted" ? " accepted at " + fmt(r.Store_Count__c) : r.Status__c === "Rejected" ? " rejected" : " in review"); });
+    b.className = "banner show";
+    b.innerHTML = '<span class="bdot" aria-hidden="true"></span><span><b>' + esc(retailer(rows[0])) + '</b> just recorded decisions on ' + rows.length + ' PaleoBar item' + (rows.length > 1 ? "s" : "") + ': ' + esc(parts.join(", ")) + '.' + (added ? ' <b>+' + fmt(added) + ' committed stores.</b>' : "") + '</span>';
+  }
+
+  /* ---------- callouts ---------- */
+  var SPARK = '<i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 0l1.9 6.1L16 8l-6.1 1.9L8 16l-1.9-6.1L0 8l6.1-1.9z"/></svg></i>';
+  function openSampleTask(itemId) { return D.tasks.filter(function (t) { return t.WhatId === itemId && /^Samples needed/i.test(t.Subject || "") && t.Status !== "Completed"; })[0]; }
+  function waitingOnSamples(s) { return s.pend.filter(function (r) { return r.Samples_Requested__c || r.Feedback_Theme__c === "Awaiting Samples"; }); }
+  function nextMeetingFor(accIds) { return D.events.filter(function (e) { return accIds.indexOf(e.AccountId) >= 0; })[0]; }
+  function daysBetween(a, b) { return Math.round((b - a) / 86400000); }
+  function renderCallouts(S, P) {
+    var C = [], ib = itemsById();
+    var pendingIfr = D.frs.filter(function (r) { return r.Status__c === "Submitted"; });
+    pendingIfr.slice(0, 1).forEach(function (r) {
+      var amt = num(r.Amount_Requested__c) || num(r.Requested_Amount__c);
+      C.push({ head: "Approval needed", title: frCust(r) + " requests " + usd(amt) + " for " + (r.Event_Description__c || r.Name),
+        body: (r.Event_Start_Date__c ? fDate(r.Event_Start_Date__c, true) + " to " + fDate(r.Event_End_Date__c) + ", " : "") + (r.Shipment_Volume__c ? fmt(r.Shipment_Volume__c) + " cases at $" + num(r.RPC__c).toFixed(2) + ". " : "") + fundImpact(amt) + (r.Request_Due_Date__c ? " Answer needed by " + fDate(r.Request_Due_Date__c, true) + "." : ""),
+        act: ifrDecisionButtons(r) + ' ' + recLink(r.Id, r.Name, "incremental fund request " + r.Name) });
+    });
+    S.forEach(function (s) {
+      if (s.it.Samples_Available__c) return;
+      var w = waitingOnSamples(s); if (!w.length) return;
+      var m = nextMeetingFor(w.map(function (r) { return r.Customer__c; })), sd = pd(s.it.Sample_Availability_Date__c);
+      var stores = w.reduce(function (a, r) { return a + num(r.Proposed_Store_Count__c || r.Store_Count__c); }, 0);
+      var t = openSampleTask(s.it.Id), body = w.length + " retailer" + (w.length > 1 ? "s" : "") + " (" + fmt(stores) + " stores) won't decide without them.";
+      if (m) { var md = pdt(m.StartDateTime), gapd = sd ? daysBetween(sd, md) : null; body += " Next up: " + String(m.Account.Name).replace(/^[*+]+/, "") + " on " + MON[md.getMonth()] + " " + md.getDate() + (gapd == null ? "." : gapd < 0 ? ", " + (-gapd) + " day" + (gapd === -1 ? "" : "s") + " before the samples arrive." : gapd < 5 ? ", only " + gapd + " day" + (gapd === 1 ? "" : "s") + " after they arrive." : "."); }
+      C.push({ head: "Samples are the bottleneck", title: s.name + " samples " + (sd ? "arrive " + fDate(s.it.Sample_Availability_Date__c, true) : "aren't scheduled"), body: body,
+        act: t ? '<span class="pill info">Requested from R&amp;D, due ' + esc(fDate(t.ActivityDate, true)) + '</span> ' + recLink(t.Id, "Task", "the sample request task") : '<button class="btn sm primary" type="button" data-sample="' + esc(s.it.Id) + '" data-event="' + esc(m ? m.Id : "") + '">Request samples from R&amp;D</button>' });
+    });
+    var zero = S.filter(function (s) { return s.acc.length === 0 && s.rej.length >= 2; }).sort(function (a, b) { return b.rej.length - a.rej.length; })[0];
+    if (zero) {
+      var th = {}; zero.rej.forEach(function (r) { var k = r.Feedback_Theme__c || r.Rejected_Reason__c || "Other"; th[k] = (th[k] || 0) + 1; });
+      var topT = Object.keys(th).sort(function (a, b) { return th[b] - th[a]; })[0];
+      C.push({ head: "Rethink this item", title: zero.name + " is 0 for " + (zero.acc.length + zero.rej.length), body: zero.rej.length + " rejections, mostly " + String(topT).toLowerCase() + ". " + (zero.pend.length ? zero.pend.length + " still deciding." : "No retailers left deciding."),
+        act: '<button class="btn sm" type="button" data-askq="Should we pull or rework ' + esc(zero.name) + ' based on what buyers said?">Ask Claude</button>' });
+    }
+    var f = D.funds[0], asks = D.feedback.filter(function (r) { return r.Status__c === "Accepted" && r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None"; });
+    if (f && num(f.cgcloud__Available_to_Plan__c) < 0 && asks.length && !pendingIfr.length) {
+      var byK = {}; asks.forEach(function (r) { byK[r.Launch_Support_Requested__c] = (byK[r.Launch_Support_Requested__c] || 0) + 1; });
+      C.push({ head: "Funding decision needed", title: "Launch asks are landing on an overcommitted fund", body: "Buyers asked for " + Object.keys(byK).sort(function (x, y) { return byK[y] - byK[x]; }).map(function (k) { var nm = { "TPR": ["TPR", "TPRs"], "Display": ["display", "displays"], "Ad Feature": ["ad feature", "ad features"], "Sampling / Demo": ["sampling event", "sampling events"], "Retail Media": ["retail media buy", "retail media buys"] }[k] || [k, k]; return byK[k] + " " + nm[byK[k] > 1 ? 1 : 0]; }).join(", ") + ". The " + (f.cgcloud__Description__c || "PaleoBar fund") + " is " + money(-num(f.cgcloud__Available_to_Plan__c)) + " over.",
+        act: '<button class="btn sm" type="button" data-askq="Which launch support asks should we fund given the PaleoBar fund is overcommitted?">Ask Claude</button>' });
+    }
+    var lead = S.slice().sort(function (a, b) { return b.committed - a.committed; })[0];
+    if (lead && P[lead.it.Id].np.length) {
+      var p = P[lead.it.Id], m2 = nextMeetingFor(p.np.map(function (r) { return r.id; }));
+      C.push({ head: "Room to grow", title: lead.name + " hasn't been presented to " + p.np.length + " retailer" + (p.np.length > 1 ? "s" : ""), body: p.np.map(function (r) { return r.name; }).join(", ") + ": " + fmt(p.npStores) + " stores of headroom." + (m2 ? " Next chance: " + String(m2.Account.Name).replace(/^[*+]+/, "") + " on " + fDate(String(m2.StartDateTime).slice(0, 10), true) + "." : ""),
+        act: '<button class="btn sm" type="button" data-askq="Where can ' + esc(lead.name) + ' find more stores, and which upcoming meetings should we use?">Ask Claude</button>' });
+    }
+    $("callouts").innerHTML = C.slice(0, 4).map(function (c) { return '<article class="callout"><div class="chead">' + SPARK + esc(c.head) + '</div><h3>' + esc(c.title) + '</h3><p>' + esc(c.body) + '</p><div class="cact">' + c.act + '</div></article>'; }).join("");
+  }
+
+  /* ---------- calendar ---------- */
+  var DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  function meetingNeeds(e, S) {
+    var rows = D.feedback.filter(function (r) { return r.Customer__c === e.AccountId; }), ib = itemsById(), md = pdt(e.StartDateTime), out = [], sampleItems = [];
+    rows.forEach(function (r) {
+      var it = D.items.filter(function (i) { return i.Id === r.New_Item__c; })[0], nm = ib[r.New_Item__c];
+      if (r.Status__c === "Draft" || r.Status__c === "In Review") {
+        var needsS = r.Samples_Requested__c || r.Feedback_Theme__c === "Awaiting Samples";
+        if (needsS && it && !it.Samples_Available__c) {
+          var sd = pd(it.Sample_Availability_Date__c), late = sd && md && daysBetween(sd, md) < 5;
+          sampleItems.push(it.Id);
+          var g = sd && md ? daysBetween(sd, md) : null;
+          out.push({ k: late ? "risk" : "dec", t: late ? "Samples at risk" : "Deciding", x: nm + ": needs samples, due " + fDate(it.Sample_Availability_Date__c, true) + (g == null ? "" : g < 0 ? ", " + (-g) + " day" + (g === -1 ? "" : "s") + " after this meeting" : late ? ", only " + g + " day" + (g === 1 ? "" : "s") + " before this meeting" : "") });
+        } else out.push({ k: "dec", t: "Deciding", x: nm + (r.Feedback_Theme__c ? ": " + r.Feedback_Theme__c.toLowerCase() : "") });
+      } else if (r.Status__c === "Accepted" && r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None") {
+        out.push({ k: "sup", t: "Launch support", x: nm + ": buyer asked for " + r.Launch_Support_Requested__c });
+      }
+      if (r.Early_Ship_Required__c) out.push({ k: "sup", t: "Early ship", x: nm + ": Operations approval " + opsStatus(r).toLowerCase() });
+    });
+    var np = S.filter(function (s) { return !rows.some(function (r) { return r.New_Item__c === s.it.Id; }); }).map(function (s) { return s.name; });
+    if (np.length) out.push({ k: "opp", t: "Opportunity", x: "Not yet presented: " + np.join(", ") });
+    return { needs: out, sampleItems: sampleItems.filter(function (v, i, a) { return a.indexOf(v) === i; }) };
+  }
+  function renderCalendar(S) {
+    if (ERR.events && !D.events.length) { $("calList").innerHTML = '<li class="errmsg small">' + esc(classify(ERR.events)) + '</li>'; return; }
+    if (!D.events.length) { $("calList").innerHTML = '<li class="muted small">No upcoming meetings with PaleoBar retailers on the account team calendars.</li>'; $("calFind").textContent = "No upcoming PaleoBar meetings found."; return; }
+    var now = Date.now(), withDec = 0, withAsk = 0, firstRisk = null;
+    var shown = ui.calAll ? D.events : D.events.slice(0, 5);
+    D.events.forEach(function (e) { var md0 = pdt(e.StartDateTime), n0 = meetingNeeds(e, S); if (n0.needs.some(function (x) { return x.k === "dec" || x.k === "risk"; })) withDec++; if (n0.needs.some(function (x) { return x.t === "Launch support"; })) withAsk++; var rk = n0.needs.filter(function (x) { return x.k === "risk"; })[0]; if (rk && !firstRisk) firstRisk = String(e.Account.Name).replace(/^[*+]+/, "") + " on " + MON[md0.getMonth()] + " " + md0.getDate(); });
+    $("calList").innerHTML = shown.map(function (e) {
+      var md = pdt(e.StartDateTime), soon = (md - now) < 14 * 86400000, n = meetingNeeds(e, S);
+
+      var who = e.Who && e.Who.Name ? "With " + e.Who.Name + ". " : "";
+      var owner = e.Owner && e.Owner.Name ? String(e.Owner.Name).replace(/\s*\(.*\)$/, "") : "";
+      var time = md.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+      var loc = /teams/i.test(e.Location || "") ? "Microsoft Teams" : (e.Location || "");
+      var sampleBtn = n.sampleItems.filter(function (id) { return !openSampleTask(id); }).map(function (id) {
+        var it = D.items.filter(function (i) { return i.Id === id; })[0];
+        return '<button class="btn sm" type="button" data-sample="' + esc(id) + '" data-event="' + esc(e.Id) + '">Request ' + esc(itemName(it)) + ' samples</button>';
+      }).join("");
+      var reqd = n.sampleItems.filter(function (id) { return openSampleTask(id); }).map(function (id) { var t = openSampleTask(id); return '<span class="pill info">Samples requested, due ' + esc(fDate(t.ActivityDate, true)) + '</span>'; }).join("");
+      return '<li><div class="dateblk' + (soon ? " soon" : "") + '"><span>' + DOW[md.getDay()] + '</span><b>' + md.getDate() + '</b><span>' + MON[md.getMonth()] + '</span></div><div>' +
+        '<div class="mtitle">' + esc(e.Subject) + '</div><div class="mmeta">' + esc(time + (loc ? ", " + loc : "") + ". " + who + (owner ? "On " + owner + "'s calendar." : "")) + '</div>' +
+        '<div class="needs">' + (n.needs.length ? n.needs.slice(0, 4).map(function (x) { return '<div class="need"><span class="tagk ' + x.k + '">' + esc(x.t) + '</span><span>' + esc(x.x) + '</span></div>'; }).join("") : '<div class="muted">No open PaleoBar items with this retailer.</div>') + '</div>' +
+        '<div class="mact">' + sampleBtn + reqd + recLink(e.Id, "Meeting", e.Subject) + recLink(e.AccountId, String(e.Account.Name).replace(/^[*+]+/, ""), "account") + '</div></div></li>';
+    }).join("");
+    if (D.events.length > 5) $("calList").insertAdjacentHTML("beforeend", '<li class="muted" style="border-top:0"><button class="btn sm" type="button" id="calMore">' + (ui.calAll ? "Show the next 5 only" : "Show all " + D.events.length + " meetings") + '</button></li>');
+    var last = pdt(D.events[D.events.length - 1].StartDateTime), weeks = Math.max(1, Math.ceil((last - now) / (7 * 86400000)));
+    $("calFind").innerHTML = "<b>" + D.events.length + " meetings</b> in the next " + weeks + " weeks. " + withDec + " have a PaleoBar decision on the table and " + withAsk + " have a launch support ask waiting on the brand team." + (firstRisk ? " Samples won't be ready in time for " + esc(firstRisk) + "." : "");
+  }
+
+  /* ---------- workflows ---------- */
+  function renderFlows() {
+    var ib = itemsById(), h = "";
+    var ops = D.feedback.filter(function (r) { return r.Early_Ship_Required__c; });
+    h += '<p class="flowh">Operations approvals</p><ul class="flow">' + (ops.map(function (r) {
+      var st = opsStatus(r);
+      return '<li><div class="ftop"><span><b>' + esc(ib[r.New_Item__c]) + '</b> early ship</span><span class="pill ' + (st === "Approved" ? "good" : st === "Rejected" ? "bad" : st === "Not submitted" ? "plain" : "info") + '">' + esc(st) + '</span></div><span class="fk">' + esc(retailer(r) + (r.Early_Ship_Date_to_Customer__c ? ", ship " + fDate(r.Early_Ship_Date_to_Customer__c, true) : ", ship date not set yet")) + ' ' + recLink(r.Id, r.Name, r.Name) + '</span></li>';
+    }).join("") || '<li class="muted">No early-ship requests.</li>') + '</ul>';
+    var tasks = D.tasks.filter(function (t) { return /^Samples needed/i.test(t.Subject || ""); });
+    h += '<p class="flowh">Sample requests to R&amp;D</p><ul class="flow">' + (tasks.map(function (t) {
+      return '<li><div class="ftop"><span><b>' + esc(ib[t.WhatId] || "Sample request") + '</b></span><span class="pill ' + (t.Status === "Completed" ? "good" : "info") + '">' + esc(t.Status) + '</span></div><span class="fk">Due ' + esc(fDate(t.ActivityDate, true)) + ' ' + recLink(t.Id, "Task", "sample request task") + '</span></li>';
+    }).join("") || '<li class="muted">None open.</li>') + '</ul>';
+    h += '<p class="flowh">Incremental fund requests</p><ul class="flow">' + (D.frs.slice(0, 4).map(function (r) {
+      var amt = num(r.Amount_Requested__c) || num(r.Requested_Amount__c);
+      return '<li><div class="ftop"><span><b>' + esc(r.Event_Description__c || r.Name) + '</b></span>' + ifrStageHtml(r.Status__c) + '</div><span class="fk">' + esc(String((r.Customer__r && r.Customer__r.Name) || "").replace(/^[*+]+/, "") + ", " + money(amt) + (r.Request_Due_Date__c ? ", answer by " + fDate(r.Request_Due_Date__c, true) : "")) + ' ' + recLink(r.Id, r.Name, r.Name) + '</span>' + (r.Status__c === "Submitted" ? '<div class="mact">' + ifrDecisionButtons(r) + '</div>' : "") + '</li>';
+    }).join("") || '<li class="muted">None yet.</li>') + '</ul>';
+    $("flows").innerHTML = h;
+  }
+
+  /* ---------- sample request (write-back) ---------- */
+  function openSampleDrawer(itemId, eventId) {
+    var it = D.items.filter(function (i) { return i.Id === itemId; })[0]; if (!it) return;
+    var ev = D.events.filter(function (e) { return e.Id === eventId; })[0];
+    var s = stats(it), w = waitingOnSamples(s), nm = itemName(it);
+    var due = ev ? new Date(pdt(ev.StartDateTime).getTime() - 5 * 86400000) : new Date(Date.now() + 7 * 86400000);
+    var dueStr = due.getFullYear() + "-" + String(due.getMonth() + 1).padStart(2, "0") + "-" + String(due.getDate()).padStart(2, "0");
+    var retailerName = ev ? String(ev.Account.Name).replace(/^[*+]+/, "") : "";
+    ui.sample = { itemId: itemId, rec: { attributes: { type: "Task" }, Subject: ("Samples needed: PaleoBar " + nm + (ev ? " for " + retailerName + " meeting on " + fDate(String(ev.StartDateTime).slice(0, 10), true) : "")).slice(0, 255), WhatId: itemId, ActivityDate: dueStr, Priority: "High", Status: "Not Started",
+      Description: "Requested by the PaleoBar brand team from the brand workspace.\n" + (ev ? "Meeting: " + ev.Subject + " on " + fDate(String(ev.StartDateTime).slice(0, 10)) + ".\n" : "") + "Retailers waiting on samples: " + (w.map(retailer).join(", ") || "none recorded") + ".\nCurrent sample availability date: " + fDate(it.Sample_Availability_Date__c) + "." } };
+    var r = ui.sample.rec;
+    $("drawer").innerHTML = '<button class="btn close" type="button" id="dClose">Close</button><p class="small muted" style="margin:0">Workflow</p><h3 id="dTitle">Request ' + esc(nm) + ' samples</h3>' +
+      '<p class="small">Creates a task on the ' + esc(nm) + ' New Item record in Salesforce, so R&amp;D and the account team see it in their normal queues.</p>' +
+      '<dl><dt>Object</dt><dd>Task</dd><dt>Subject</dt><dd>' + esc(r.Subject) + '</dd><dt>Related to</dt><dd>' + esc(it.Name + ", " + nm) + '</dd><dt>Due</dt><dd>' + esc(fDate(r.ActivityDate)) + '</dd><dt>Priority</dt><dd>High</dd><dt>Waiting</dt><dd>' + esc(w.map(retailer).join(", ") || "None recorded") + '</dd></dl>' +
+      '<div class="row" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" type="button" id="sampleCreate">Create in Salesforce</button><button class="btn" type="button" id="sampleCancel">Cancel</button></div><p id="sampleErr" class="errmsg small"></p>';
+    $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden", "false"); $("scrim").classList.add("open"); $("sampleCreate").focus();
+  }
+  async function createSample() {
+    var btn = $("sampleCreate");
+    var mcp = await getMcp(), t0 = performance.now();
+    if (!mcp || source !== "live") { $("sampleErr").textContent = "Creating records needs a live Salesforce connection. Open this page in Claude with the Salesforce connector and choose Refresh."; return; }
+    btn.disabled = true; btn.textContent = "Creating";
+    try {
+      var res = await mcp.callTool(SF, WT, { url: "/services/data/v67.0/composite/sobjects", method: "POST", body: { allOrNone: true, records: [ui.sample.rec] } }, { cache: false });
+      var p = payloadOf(res), body = p && (p.body || p), r0 = Array.isArray(body) ? body[0] : null;
+      if (!r0 || !r0.success) throw { code: "sf_error", message: JSON.stringify((r0 && r0.errors) || body).slice(0, 300) };
+      logCall({ method: "POST", target: "Task", detail: "created " + r0.id, ms: Math.round(performance.now() - t0), ok: true, write: true });
+      closeDrawer(); ui.sample = null;
+      var itemIds = inList(D.items.map(function (i) { return i.Id; }));
+      D.tasks = await query(mcp, "tasks", "SELECT Id, Subject, Status, ActivityDate, WhatId, CreatedDate FROM Task WHERE WhatId IN (" + itemIds + ") ORDER BY CreatedDate DESC LIMIT 20");
+      render();
+    } catch (err) {
+      logCall({ method: "POST", target: "Task", detail: (err && err.code) || "error", ms: Math.round(performance.now() - t0), ok: false, write: true });
+      btn.disabled = false; btn.textContent = "Create in Salesforce"; $("sampleErr").textContent = classify(err);
+    }
+  }
+
+  function retailerOrder() {
+    var agg = {};
+    D.feedback.forEach(function (r) { var k = r.Customer__c; agg[k] = agg[k] || { id: k, name: retailer(r), stores: 0 }; agg[k].stores = Math.max(agg[k].stores, num(r.Proposed_Store_Count__c || r.Store_Count__c)); });
+    return Object.keys(agg).map(function (k) { return agg[k]; }).sort(function (a, b) { if (a.id === NTO) return -1; if (b.id === NTO) return 1; return b.stores - a.stores; });
+  }
+  function renderGrid(S) {
+    var R = retailerOrder();
+    var head = '<thead><tr><th class="item" scope="col">Item</th>' + R.map(function (r) { return '<th scope="col" class="retcol' + (r.id === NTO ? " nto" : "") + '">' + esc(r.name) + '</th>'; }).join("") + '</tr></thead>';
+    var body = S.map(function (s) {
+      return '<tr><th class="item" scope="row">' + esc(s.name) + '</th>' + R.map(function (r) {
+        var f = s.rows.filter(function (x) { return x.Customer__c === r.id; })[0];
+        if (!f) return '<td><span class="cell none" aria-label="Not proposed">·</span></td>';
+        var n = f.Status__c === "Accepted" ? fmt(f.Store_Count__c) : fmt(f.Proposed_Store_Count__c || f.Store_Count__c);
+        return '<td><button type="button" class="cell ' + stCls(f.Status__c) + (isFresh(f) ? " fresh" : "") + '" data-nif="' + esc(f.Id) + '" aria-label="' + esc(r.name + ", " + s.name + ": " + stLabel(f.Status__c)) + '">' + esc(stLabel(f.Status__c)) + '<small>' + n + ' stores</small></button></td>';
+      }).join("") + '</tr>';
+    }).join("");
+    $("gridTable").innerHTML = head + '<tbody>' + body + '</tbody>';
+    var dec = D.feedback.filter(function (r) { return r.Status__c === "Accepted" || r.Status__c === "Rejected"; }).length;
+    var pendBy = {}; D.feedback.forEach(function (r) { if (r.Status__c === "Draft" || r.Status__c === "In Review") { var k = r.Customer__c; pendBy[k] = pendBy[k] || { n: 0, stores: 0, name: retailer(r) }; pendBy[k].n++; pendBy[k].stores += num(r.Proposed_Store_Count__c || r.Store_Count__c); } });
+    var big = Object.keys(pendBy).map(function (k) { return pendBy[k]; }).sort(function (x, y) { return y.stores - x.stores; })[0];
+    $("gridFind").innerHTML = "<b>" + dec + " of " + D.feedback.length + "</b> retailer decisions are in." + (big ? " " + esc(big.name) + " is the largest open decision: " + big.n + " item" + (big.n > 1 ? "s" : "") + " worth " + fmt(big.stores) + " store placements." : "") + " Select a cell for the buyer's reasoning.";
+  }
+
+  function renderChips(S) {
+    var opts = [{ id: "all", name: "All items" }].concat(S.map(function (s) { return { id: s.it.Id, name: s.name }; }));
+    $("themeChips").innerHTML = opts.map(function (o) { return '<button type="button" class="chip" data-theme-item="' + esc(o.id) + '" aria-pressed="' + (ui.themeItem === o.id) + '">' + esc(o.name) + '</button>'; }).join("");
+  }
+  function renderWhy(S) {
+    var rows = D.feedback.filter(function (r) { return r.Status__c !== "Draft" && (ui.themeItem === "all" || r.New_Item__c === ui.themeItem); });
+    var th = {};
+    rows.forEach(function (r) { var t = r.Feedback_Theme__c || "Not recorded"; th[t] = th[t] || { acc: 0, rev: 0, rej: 0, n: 0 }; th[t][stCls(r.Status__c)]++; th[t].n++; });
+    var list = Object.keys(th).map(function (k) { return { k: k, v: th[k] }; }).sort(function (a, b) { return b.v.n - a.v.n; });
+    var max = list.length ? list[0].v.n : 1;
+    $("themes").innerHTML = list.map(function (t) {
+      var w = function (c) { return (100 * t.v[c] / max).toFixed(2) + "%"; };
+      return '<div class="trow"><span>' + esc(t.k) + '</span><span class="tbar" title="' + t.v.acc + ' accepted, ' + t.v.rev + ' deciding, ' + t.v.rej + ' rejected"><i style="width:' + w("acc") + ';background:var(--meadow)"></i><i style="width:' + w("rev") + ';background:var(--glacier)"></i><i style="width:' + w("rej") + ';background:var(--apricot)"></i></span><b>' + t.v.n + '</b></div>';
+    }).join("") || '<p class="muted small">No buyer responses yet for this item.</p>';
+    var rejT = {}; rows.forEach(function (r) { if (r.Status__c === "Rejected") { var k = r.Feedback_Theme__c || "Not recorded"; rejT[k] = (rejT[k] || 0) + 1; } });
+    var topRej = Object.keys(rejT).sort(function (x, y) { return rejT[y] - rejT[x]; })[0];
+    $("whyFind").innerHTML = list.length ? "<b>" + esc(list[0].k) + "</b> comes up most (" + list[0].v.n + " of " + rows.length + " responses)." + (topRej ? " Rejections are driven most by " + esc(topRej.toLowerCase()) + "." : "") : "No buyer responses yet.";
+    var itemsById = {}; D.items.forEach(function (i) { itemsById[i.Id] = itemName(i); });
+    var q = rows.filter(function (r) { return plain(r.Additional_Coments__c); }).sort(function (a, b) {
+      var o = { Rejected: 0, "In Review": 1, Accepted: 2 }; return (o[a.Status__c] - o[b.Status__c]) || ((pdt(b.LastModifiedDate) || 0) - (pdt(a.LastModifiedDate) || 0));
+    }).slice(0, 6);
+    $("quotes").innerHTML = q.map(function (r) {
+      return '<li class="' + stCls(r.Status__c) + '"><q>' + esc(plain(r.Additional_Coments__c)) + '</q><span class="who">' + esc(retailer(r) + " on " + itemsById[r.New_Item__c] + ", " + stLabel(r.Status__c).toLowerCase() + (r.Feedback_Source__c ? ", via " + r.Feedback_Source__c.toLowerCase() : "")) + '</span></li>';
+    }).join("");
+  }
+
+  function renderReady(S) {
+    var risk = S.filter(function (s) { return s.it.Supply_Readiness__c === "At Risk" || s.it.Supply_Readiness__c === "Blocked"; });
+    var early = D.feedback.filter(function (r) { return r.Early_Ship_Required__c && opsStatus(r) !== "Approved"; });
+    $("readyFind").innerHTML = (risk.length ? "<b>" + esc(risk.map(function (s) { return s.name; }).join(", ")) + "</b> " + (risk.length > 1 ? "have" : "has") + " supply at risk." : "Supply is on track for every item.") + (early.length ? " " + early.length + " early-ship request" + (early.length > 1 ? "s haven't" : " hasn't") + " been approved by Operations yet." : "");
+    $("readyList").innerHTML = S.map(function (s) {
+      var it = s.it, pills = [];
+      var sr = it.Supply_Readiness__c;
+      pills.push('<span class="pill ' + (sr === "Ready" || sr === "On Track" ? "good" : sr === "At Risk" ? "warn" : sr === "Blocked" ? "bad" : "plain") + '">Supply ' + esc((sr || "not set").toLowerCase()) + '</span>');
+      var waiting = s.rows.filter(function (r) { return r.Feedback_Theme__c === "Awaiting Samples" && r.Status__c !== "Accepted" && r.Status__c !== "Rejected"; });
+      var lines = [];
+      if (it.Samples_Available__c) lines.push("Samples ready for buyers.");
+      else lines.push("Samples not ready" + (it.Sample_Availability_Date__c ? ", due " + fDate(it.Sample_Availability_Date__c, true) : "") + ".");
+      if (waiting.length) { pills.push('<span class="pill warn">' + waiting.length + ' waiting on samples</span>'); lines.push(waiting.map(retailer).join(", ") + " won't decide until samples arrive (" + fmt(waiting.reduce(function (a, r) { return a + num(r.Proposed_Store_Count__c || r.Store_Count__c); }, 0)) + " stores)."); }
+      var early = s.rows.filter(function (r) { return r.Early_Ship_Required__c; });
+      early.forEach(function (r) {
+        var st = opsStatus(r);
+        pills.push('<span class="pill ' + (st === "Approved" ? "good" : st === "Rejected" ? "bad" : "info") + '">Early ship ' + esc(st.toLowerCase()) + '</span>');
+        lines.push(retailer(r) + " needs an early ship" + (r.Early_Ship_Date_to_Customer__c ? " on " + fDate(r.Early_Ship_Date_to_Customer__c, true) : "") + (r.Pipeline_Fill_Cases__c ? ", " + fmt(r.Pipeline_Fill_Cases__c) + " cases of pipeline fill" : "") + ". Operations approval: " + st.toLowerCase() + ".");
+      });
+      var resets = s.acc.map(function (r) { return r.Reset_Date__c; }).filter(Boolean).sort();
+      if (resets.length) lines.push("First shelf reset " + fDate(resets[0], true) + (resets.length > 1 ? ", last " + fDate(resets[resets.length - 1], true) : "") + ". Orderable " + fDate(it.Orderable_Date__c, true) + ", national launch " + fDate(it.National_Launch_Date__c, true) + ".");
+      else lines.push("Orderable " + fDate(it.Orderable_Date__c, true) + ", national launch " + fDate(it.National_Launch_Date__c, true) + ".");
+      return '<li><div class="rtop"><h3 style="margin:0">' + esc(s.name) + ' ' + recLink(it.Id, it.Name, s.name + " new item record") + '</h3><span>' + pills.join(" ") + '</span></div><div class="small">' + lines.map(esc).join(" ") + '</div></li>';
+    }).join("");
+  }
+
+  function brandsOf(p) { try { return JSON.parse(p.cgcloud__Effective_Brands__c || "[]"); } catch (e) { return []; } }
+  function kind(name, mech) { var n = (name || "") + " " + (mech || ""); return /display/i.test(n) ? "Display" : /tpr/i.test(n) ? "TPR" : /feature/i.test(n) ? "Ad Feature" : "Promotion"; }
+  function renderTrade(S) {
+    // Fund
+    var f = D.funds[0];
+    if (!f) $("fund").innerHTML = ERR.funds ? '<p class="errmsg small">' + esc(classify(ERR.funds)) + '</p>' : '<h3>Brand development fund</h3><p class="muted small">No PaleoBar fund found in Salesforce.</p>';
+    else {
+      var bud = num(f.cgcloud__Current_Budget__c), com = num(f.cgcloud__Commitments_Total__c), av = num(f.cgcloud__Available_to_Plan__c);
+      var scale = Math.max(bud, com, 1);
+      $("fund").innerHTML = '<h3>' + esc(f.cgcloud__Description__c || f.Name) + ' ' + recLink(f.Id, f.Name, "brand fund") + '</h3>' +
+        '<div class="big' + (av < 0 ? " neg" : "") + '">' + (av < 0 ? money(-av) + " over" : money(av) + " left") + '</div>' +
+        '<div class="small muted">' + (av < 0 ? "Commitments exceed the budget." : "Available to plan.") + " Valid " + fDate(f.cgcloud__Valid_From__c, true) + " to " + fDate(f.cgcloud__Valid_Thru__c) + '</div>' +
+        '<div class="fundbar" aria-hidden="true"><i style="width:' + (100 * com / scale).toFixed(1) + '%"></i><b style="left:' + (100 * bud / scale).toFixed(1) + '%"></b></div>' +
+        '<dl class="kv"><dt>Budget</dt><dd>' + money(bud) + '</dd><dt>Committed</dt><dd>' + money(com) + '</dd><dt>Available</dt><dd>' + money(av) + '</dd></dl>' +
+        '<div class="asks">' + asksHtml() + '</div>';
+    }
+    // Fund requests
+    $("frList").innerHTML = D.frs.map(function (r) {
+      var amt = num(r.Amount_Requested__c) || num(r.Requested_Amount__c), fc = r.Sales_Finance_Comments__c || r.CSL_Comments__c;
+      return '<li class="ifr"><div class="ftop"><span><b>' + esc(r.Event_Description__c || r.Name) + '</b> ' + recLink(r.Id, r.Name, "incremental fund request " + r.Name) + '</span><b>' + money(amt) + '</b></div>' +
+        '<span class="tag">' + esc(String((r.Customer__r && r.Customer__r.Name) || "").replace(/^[*+]+/, "") + (r.Shipment_Volume__c ? ", " + fmt(r.Shipment_Volume__c) + " cases at $" + num(r.RPC__c).toFixed(2) : "") + (r.Request_Due_Date__c ? ", answer needed by " + fDate(r.Request_Due_Date__c, true) : "")) + '</span>' +
+        '<div class="ifrstage">' + ifrStageHtml(r.Status__c) + (r.Status__c === "Submitted" ? ' ' + ifrDecisionButtons(r) : "") + '</div>' + (r.Sales_Finance_Comments__c ? '<p class="fincomment">Decision: ' + esc(r.Sales_Finance_Comments__c) + '</p>' : r.CSL_Comments__c ? '<p class="fincomment">From the KAM: ' + esc(r.CSL_Comments__c) + '</p>' : "") + '</li>';
+    }).join("") || '<li class="muted">No PaleoBar incremental fund requests yet.</li>';
+
+    // Promotions
+    var live = D.promos.filter(function (p) { return brandsOf(p).indexOf(BRAND) >= 0; }).map(function (p) {
+      var b = brandsOf(p);
+      return { id: p.Id, retailer: "Northern Trail Outfitters", name: p.cgcloud__Slogan__c, from: p.cgcloud__Date_From__c, thru: p.cgcloud__Date_Thru__c, mech: kind(p.cgcloud__Slogan__c, p.Mechanic__c), plan: num(p.Planned_Volume__c), actual: num(p.Actual_Volume__c), spend: num(p.Planned_Spend__c), shared: b.length - 1, live: true };
+    });
+    var rows = live.concat(REPRESENTATIVE.map(function (r) { return Object.assign({ shared: 0, live: false }, r); }));
+    rows.sort(function (a, b) { return (pd(b.from) || 0) - (pd(a.from) || 0); });
+    var agg = {}; live.forEach(function (r) { if (!r.plan) return; agg[r.mech] = agg[r.mech] || { p: 0, a: 0, n: 0 }; agg[r.mech].p += r.plan; agg[r.mech].a += r.actual; agg[r.mech].n++; });
+    var t = agg.TPR, d = agg.Display;
+    var asksN = D.feedback.filter(function (r) { return r.Status__c === "Accepted" && r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None"; }).length;
+    var f0 = D.funds[0];
+    $("tradeFind").innerHTML = "<b>" + asksN + " accepted listings</b> came with a launch support ask." + (f0 && num(f0.cgcloud__Available_to_Plan__c) < 0 ? " The PaleoBar fund is already " + money(-num(f0.cgcloud__Available_to_Plan__c)) + " over, so every yes needs a trade-off." : "");
+    if (t && d) { $("tradeInsight").hidden = false; $("tradeInsight").textContent = "At Northern Trail Outfitters this year, " + t.n + " PaleoBar TPRs delivered " + Math.round(100 * t.a / t.p) + "% of planned volume, while " + d.n + " PaleoBar displays delivered " + Math.round(100 * d.a / d.p) + "%."; } else $("tradeInsight").hidden = true;
+    $("promoTable").innerHTML = '<thead><tr><th>Promotion</th><th>Type</th><th class="n">Planned</th><th class="n">Actual</th><th class="n">Delivered</th><th class="n">Spend</th></tr></thead><tbody>' +
+      rows.slice(0, ui.promoAll ? rows.length : 8).map(function (r) {
+        var pc = r.plan ? Math.round(100 * r.actual / r.plan) : 0, col = pc >= 85 ? "var(--meadow)" : pc >= 50 ? "var(--sun)" : "var(--apricot)";
+        return '<tr><td><b>' + esc(r.name) + '</b>' + (r.live ? ' <a class="rec" href="' + esc(INSTANCE + "/" + r.id) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc("Open " + r.name + " promotion in Salesforce (opens in a new tab)") + '" title="Open in Salesforce"><span class="src only"><b aria-hidden="true"></b></span></a>' : '<span class="repr">Representative</span>') + '<span class="tag">' + esc(r.retailer + ", " + fDate(r.from, true) + " to " + fDate(r.thru, true) + (r.shared > 0 ? ", shared with " + r.shared + " other brand" + (r.shared > 1 ? "s" : "") : r.live ? ", PaleoBar only" : "")) + '</span></td><td>' + esc(r.mech) + '</td><td class="n">' + fmt(r.plan) + '</td><td class="n">' + fmt(r.actual) + '</td><td class="n"><span class="deliv"><i style="width:' + Math.min(pc, 100) + '%;background:' + col + '"></i></span>' + pc + '%</td><td class="n">' + money(r.spend) + '</td></tr>';
+      }).join("") + '</tbody>' + (rows.length > 8 ? '<tfoot><tr><td colspan="6"><button class="btn sm" type="button" id="promoMore">' + (ui.promoAll ? "Show fewer" : "Show all " + rows.length + " promotions") + '</button></td></tr></tfoot>' : "");
+    renderFrForm();
+  }
+  /* ---------- incremental fund requests (Fund_Request__c) ---------- */
+  var IFR_STAGES = ["Draft", "Submitted", "Approved", "Active in Plan", "Funds Transferred"];
+  function ifrStageHtml(st) {
+    st = st || "Draft";
+    if (st === "Rejected") return '<span class="pill bad">Rejected</span>';
+    var i = Math.max(0, IFR_STAGES.indexOf(st));
+    return '<span class="stages" role="img" aria-label="' + esc("Stage " + (i + 1) + " of " + IFR_STAGES.length + ": " + st) + '">' + IFR_STAGES.map(function (s, k) { return '<i class="' + (k <= i ? "on" : "") + '" title="' + esc(s) + '"></i>'; }).join("") + '</span><span class="pill ' + (i >= 2 ? "good" : "info") + '">' + esc(st) + '</span>';
+  }
+  function asksList() { return D.feedback.filter(function (r) { return r.Status__c === "Accepted" && r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None"; }); }
+  function ifrFor(r) {
+    var nm = itemsById()[r.New_Item__c] || "@@";
+    return D.frs.filter(function (x) { var o = x.Request_Objective__c || ""; return x.Customer__c === r.Customer__c && (o.indexOf(r.Name) >= 0 || o.indexOf(nm) >= 0); })[0];
+  }
+  function asksHtml() {
+    var asks = asksList(), ib = itemsById();
+    if (!asks.length) return '<p class="muted">No launch support requested yet.</p>';
+    var open = asks.filter(function (r) { return !ifrFor(r); }).length;
+    asks = asks.slice().sort(function (x, y) { return (!!ifrFor(x) - !!ifrFor(y)) || (num(y.Store_Count__c) - num(x.Store_Count__c)); });
+    var all = asks.length, shownA = ui.asksAll ? asks : asks.slice(0, 4);
+    return '<h3 style="margin-bottom:2px">Launch support buyers asked for</h3><p class="small muted" style="margin:0 0 6px">' + open + ' of ' + asks.length + ' still need an incremental fund request.</p><ul class="asklist">' + shownA.map(function (r) {
+      var x = ifrFor(r);
+      return '<li><div><b>' + esc(retailer(r)) + '</b><span class="tag">' + esc(ib[r.New_Item__c] + ", " + r.Launch_Support_Requested__c + ", " + fmt(r.Store_Count__c) + " stores") + '</span></div><div class="askact">' +
+        (x ? ifrStageHtml(x.Status__c) + (x.Status__c === "Submitted" ? ifrDecisionButtons(x) : "") + recLink(x.Id, x.Name, "incremental fund request " + x.Name) : '<span class="pill plain">No request from the KAM yet</span>') + '</div></li>';
+    }).join("") + '</ul>' + (all > 4 ? '<button class="btn sm" type="button" id="asksMore" style="margin-top:8px">' + (ui.asksAll ? "Show fewer" : "Show all " + all + " asks") + '</button>' : "");
+  }
+  function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function addDays(s, n) { var d = pd(s); d.setDate(d.getDate() + n); return iso(d); }
+  function weeksOf(d) { var a = pd(d.start), b = pd(d.end); return a && b ? Math.max(1, Math.round(((b - a) / 86400000 + 1) / 7)) : 1; }
+  function listingOf(id) { return D.feedback.filter(function (x) { return x.Id === id; })[0]; }
+  function itemOf(r) { return D.items.filter(function (i) { return i.Id === r.New_Item__c; })[0] || {}; }
+  function calcCases(d) { var r = listingOf(d.nif); if (!r) return 0; return Math.ceil(num(r.Store_Count__c) * num(r.expectedvelocity__c) * weeksOf(d) / (d.casePack || 8)); }
+  function ifrDraftFor(nifId) {
+    var r = listingOf(nifId); if (!r) return null;
+    var it = itemOf(r), nm = itemName(it), ask = r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None" ? r.Launch_Support_Requested__c : "TPR";
+    var hasAsk = !!(r.Launch_Support_Requested__c && r.Launch_Support_Requested__c !== "None");
+    var start;
+    if (r.Reset_Date__c) start = addDays(r.Reset_Date__c, 14);
+    else if (it.Orderable_Date__c) { var od = pd(it.Orderable_Date__c); start = iso(new Date(od.getFullYear(), od.getMonth() + 1, 1)); }
+    else start = iso(new Date(Date.now() + 60 * 86400000));
+    var end = addDays(start, 27);
+    var ev = D.events.filter(function (e) { return e.AccountId === r.Customer__c; })[0], today = iso(new Date());
+    var due = ev ? iso(new Date(pdt(ev.StartDateTime).getTime() - 3 * 86400000)) : addDays(start, -21);
+    if (due < today) due = addDays(today, 3);
+    var d = { nif: r.Id, type: "TPR", desc: (nm + " launch " + ask).slice(0, 50), start: start, end: end, casePack: num(it.Case_Count__c) || 8, rpc: 6, due: due, status: "Submitted", dueWhy: ev ? "3 days before the " + retailer(r) + " meeting on " + fDate(String(ev.StartDateTime).slice(0, 10), true) : "3 weeks before the event",
+      objective: ("PaleoBar " + nm + " launch " + (/^[A-Z]{2,}$/.test(ask) ? ask : ask.toLowerCase()) + " at " + retailer(r) + ": " + fmt(r.Store_Count__c) + " stores at " + num(r.expectedvelocity__c) + " units/store/week." + (hasAsk ? " Buyer asked for " + ask + "." : "") + " Source: " + r.Name + ".").slice(0, 255) };
+    d.cases = calcCases(d); d.autoCases = true;
+    return d;
+  }
+  function firstOpenAsk() {
+    // Prefer listings accepted in the last 2 hours (the KAM handoff), biggest first; then unfunded buyer asks.
+    var fresh = D.feedback.filter(function (r) { return r.Status__c === "Accepted" && isFresh(r) && !ifrFor(r); }).sort(function (x, y) { return num(y.Store_Count__c) - num(x.Store_Count__c); });
+    var a = asksList().filter(function (r) { return !ifrFor(r); });
+    return fresh[0] || a[0] || asksList()[0] || D.feedback.filter(function (r) { return r.Status__c === "Accepted"; })[0];
+  }
+  function openIfr(nifId) {
+    var id = nifId || (firstOpenAsk() || {}).Id; if (!id) return;
+    ui.frOpen = true; ui.frStage = "edit"; ui.frMsg = ""; ui.frDraft = ifrDraftFor(id); renderFrForm();
+    var f = $("frForm"); if (f) f.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  function usd(n) { var v = Math.round(num(n)); return (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US"); }
+  function fundImpact(amount) {
+    var f = D.funds[0]; if (!f) return "";
+    var av = num(f.cgcloud__Available_to_Plan__c), after = av - amount, nm = f.cgcloud__Description__c || f.Name;
+    return av < 0 ? "Adds " + usd(amount) + " to " + nm + ", which is already " + usd(-av) + " over budget. Over budget after this request: " + usd(-after) + "."
+      : "Draws " + usd(amount) + " from " + nm + ". Available after this request: " + usd(after) + (after < 0 ? " (over budget)." : ".");
+  }
+  function renderFrForm() {
+    var w = $("frFormWrap");
+    if (!ui.frOpen) { w.innerHTML = ui.frMsg ? '<p class="small okmsg" style="margin-top:14px">' + esc(ui.frMsg) + ' ' + recLink(ui.frId, "View record", "the new incremental fund request") + '</p>' : ""; return; }
+    var d = ui.frDraft; if (!d) { ui.frOpen = false; w.innerHTML = ""; return; }
+    var r = listingOf(d.nif), it = itemOf(r), fund = D.funds[0], amount = Math.round(d.cases * d.rpc * 100) / 100;
+    if (ui.frStage === "review") {
+      w.innerHTML = '<form class="fr" id="frForm"><div class="review"><b>Review before creating in Salesforce</b><dl>' +
+        '<dt>Object</dt><dd>Incremental Fund Request</dd><dt>Customer</dt><dd>' + esc(retailer(r)) + '</dd><dt>Listing</dt><dd>' + esc(itemName(it) + ", " + r.Name + ", " + fmt(r.Store_Count__c) + " stores") + '</dd>' +
+        '<dt>Event</dt><dd>' + esc(d.type + ", " + d.desc) + '</dd><dt>Dates</dt><dd>' + esc(fDate(d.start) + " to " + fDate(d.end) + " (" + weeksOf(d) + " weeks)") + '</dd>' +
+        '<dt>Shipment volume</dt><dd>' + esc(fmt(d.cases) + " cases") + '</dd><dt>RPC</dt><dd>' + esc("$" + d.rpc.toFixed(2) + " per case") + '</dd><dt>Amount requested</dt><dd><b>' + esc("$" + amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + '</b></dd>' +
+        '<dt>Answer needed by</dt><dd>' + esc(fDate(d.due)) + '</dd><dt>Target fund</dt><dd>' + esc(fund ? (fund.cgcloud__Description__c || fund.Name) : "None") + '</dd><dt>Status</dt><dd>' + esc(d.status) + '</dd><dt>Objective</dt><dd>' + esc(d.objective) + '</dd></dl>' +
+        '<p class="small" style="margin:8px 0 0">' + esc(fundImpact(amount)) + '</p></div>' +
+        '<div class="formrow"><button class="btn primary" type="button" id="frCreate">Create in Salesforce</button><button class="btn" type="button" id="frBack">Edit</button><span id="frErr" class="errmsg small"></span></div></form>';
+      return;
+    }
+    var accepted = D.feedback.filter(function (x) { return x.Status__c === "Accepted"; }), ib = itemsById();
+    w.innerHTML = '<form class="fr" id="frForm"><h3 class="full" style="margin:0">New incremental fund request</h3>' +
+      '<label class="full">Listing<select name="nif">' + accepted.map(function (x) { var a = x.Launch_Support_Requested__c && x.Launch_Support_Requested__c !== "None" ? ", asked for " + x.Launch_Support_Requested__c : ""; return '<option value="' + esc(x.Id) + '"' + (x.Id === d.nif ? " selected" : "") + '>' + esc(retailer(x) + ", " + ib[x.New_Item__c] + " (" + fmt(x.Store_Count__c) + " stores" + a + ")") + '</option>'; }).join("") + '</select></label>' +
+      '<label>Event type<select name="type"><option' + (d.type === "TPR" ? " selected" : "") + '>TPR</option><option' + (d.type === "EADS" ? " selected" : "") + '>EADS</option></select></label>' +
+      '<label>Event name<input name="desc" maxlength="50" value="' + esc(d.desc) + '"></label>' +
+      '<label>Starts<input type="date" name="start" value="' + esc(d.start) + '"></label>' +
+      '<label>Ends<input type="date" name="end" value="' + esc(d.end) + '"></label>' +
+      '<label>Shipment volume (cases)<input type="number" name="cases" min="1" step="1" value="' + esc(d.cases) + '"><span class="hint" id="caseHint">' + esc(fmt(r.Store_Count__c) + " stores × " + num(r.expectedvelocity__c) + " units/week × " + weeksOf(d) + " weeks ÷ " + d.casePack + " per case") + '</span></label>' +
+      '<label>RPC (rate per case, USD)<input type="number" name="rpc" min="0.01" step="0.25" value="' + esc(d.rpc) + '"></label>' +
+      '<div class="full amountline"><span>Amount requested</span><b id="frAmount">' + esc("$" + amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + '</b><span class="hint">Shipment volume × RPC, the same formula Salesforce uses</span><span class="hint" id="frImpact">' + esc(fundImpact(amount)) + '</span></div>' +
+      '<label>Answer needed by<input type="date" name="due" value="' + esc(d.due) + '"><span class="hint">' + esc(d.dueWhy || "") + '</span></label>' +
+      '<label>Status<select name="status"><option' + (d.status === "Submitted" ? " selected" : "") + '>Submitted</option><option' + (d.status === "Draft" ? " selected" : "") + '>Draft</option></select></label>' +
+      '<label class="full">Event recap and objective<textarea name="objective" maxlength="255">' + esc(d.objective) + '</textarea></label>' +
+      '<div class="formrow"><button class="btn primary" type="button" id="frReview">Review</button><button class="btn" type="button" id="frCancel">Cancel</button><span id="frErr" class="errmsg small"></span></div></form>';
+  }
+  function readForm() {
+    var f = $("frForm"); if (!f || !f.elements.nif) return;
+    var g = function (n) { var el = f.elements[n]; return el ? el.value : ""; };
+    var d = ui.frDraft;
+    d.type = g("type"); d.desc = g("desc").trim(); d.start = g("start"); d.end = g("end");
+    d.cases = Math.round(Number(g("cases"))); d.rpc = Number(g("rpc")); d.due = g("due"); d.status = g("status"); d.objective = g("objective").trim();
+  }
+  function onFrInput(e) {
+    var f = $("frForm"); if (!f || !f.elements.nif || !f.contains(e.target)) return;
+    if (e.target.name === "nif") { ui.frDraft = ifrDraftFor(e.target.value); renderFrForm(); return; }
+    var prevAuto = ui.frDraft.autoCases;
+    readForm();
+    if (e.target.name === "cases") ui.frDraft.autoCases = false;
+    if ((e.target.name === "start" || e.target.name === "end") && prevAuto && ui.frDraft.start && ui.frDraft.end) { ui.frDraft.cases = calcCases(ui.frDraft); f.elements.cases.value = ui.frDraft.cases; }
+    var r = listingOf(ui.frDraft.nif); $("caseHint").textContent = fmt(r.Store_Count__c) + " stores × " + num(r.expectedvelocity__c) + " units/week × " + weeksOf(ui.frDraft) + " weeks ÷ " + ui.frDraft.casePack + " per case";
+    var amount = (ui.frDraft.cases || 0) * (ui.frDraft.rpc || 0);
+    $("frAmount").textContent = "$" + amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    $("frImpact").textContent = fundImpact(amount);
+  }
+  async function createFr() {
+    var d = ui.frDraft, btn = $("frCreate");
+    var mcp = await getMcp(); var t0 = performance.now();
+    if (!mcp || source !== "live") { $("frErr").textContent = "Creating records needs a live Salesforce connection. Open this page in Claude with the Salesforce connector and choose Refresh."; return; }
+    btn.disabled = true; btn.textContent = "Creating";
+    var r = listingOf(d.nif), amount = Math.round(d.cases * d.rpc * 100) / 100;
+    var rec = { attributes: { type: "Fund_Request__c" }, Customer__c: r.Customer__c, Status__c: d.status, Event_Type__c: d.type, Event_Description__c: d.desc.slice(0, 50), Event_Start_Date__c: d.start, Event_End_Date__c: d.end,
+      Shipment_Volume__c: d.cases, RPC__c: d.rpc, Requested_Amount__c: amount, Request_Due_Date__c: d.due, Request_Objective__c: d.objective.slice(0, 255) };
+    if (D.funds[0]) rec.Fund__c = D.funds[0].Id;
+    try {
+      var res = await mcp.callTool(SF, WT, { url: "/services/data/v67.0/composite/sobjects", method: "POST", body: { allOrNone: true, records: [rec] } }, { cache: false });
+      var p = payloadOf(res), body = p && (p.body || p), r0 = Array.isArray(body) ? body[0] : null;
+      if (!r0 || !r0.success) throw { code: "sf_error", message: JSON.stringify((r0 && r0.errors) || body).slice(0, 300) };
+      logCall({ method: "POST", target: "Fund_Request__c", detail: "created " + r0.id, ms: Math.round(performance.now() - t0), ok: true, write: true });
+      ui.frOpen = false; ui.frStage = "edit"; ui.frDraft = null; ui.frId = r0.id;
+      ui.frMsg = "Incremental fund request " + (d.status === "Draft" ? "saved as a draft" : "submitted") + " in Salesforce for $" + amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ".";
+      D.frs = await query(mcp, "frs"); render();
+    } catch (err) {
+      logCall({ method: "POST", target: "Fund_Request__c", detail: (err && err.code) || "error", ms: Math.round(performance.now() - t0), ok: false, write: true });
+      btn.disabled = false; btn.textContent = "Create in Salesforce"; $("frErr").textContent = classify(err);
+    }
+  }
+
+  /* ---------- approve or decline a KAM's incremental fund request ---------- */
+  var BM = "Maya Ortiz";
+  function frCust(r) { return String((r.Customer__r && r.Customer__r.Name) || "A retailer").replace(/^[*+]+/, ""); }
+  function plainText(t) { return String(t || "").replace(/\s+/g, " ").trim(); }
+  function ifrDecisionButtons(r) { return '<button class="btn sm primary" type="button" data-ifrdec="' + esc(r.Id) + '" data-dec="Approved">Approve</button> <button class="btn sm" type="button" data-ifrdec="' + esc(r.Id) + '" data-dec="Rejected">Decline</button>'; }
+  function openIfrDecision(id, dec) {
+    var r = D.frs.filter(function (x) { return x.Id === id; })[0]; if (!r) return;
+    var amt = num(r.Amount_Requested__c) || num(r.Requested_Amount__c), f = D.funds[0];
+    ui.ifrDec = { id: id, dec: dec };
+    var rows = [["Customer", frCust(r)], ["Event", (r.Event_Type__c ? r.Event_Type__c + ", " : "") + (r.Event_Description__c || "")], ["Dates", fDate(r.Event_Start_Date__c) + " to " + fDate(r.Event_End_Date__c)],
+      ["Volume", r.Shipment_Volume__c ? fmt(r.Shipment_Volume__c) + " cases at $" + num(r.RPC__c).toFixed(2) + " per case" : "Not set"], ["Amount", usd(amt)], ["Fund", f ? (f.cgcloud__Description__c || f.Name) : "Not set"], ["Answer needed by", r.Request_Due_Date__c ? fDate(r.Request_Due_Date__c) : "Not set"]];
+    var def = dec === "Approved" ? "Fund the February TPR from the PaleoBar BDF 2026." : "";
+    $("drawer").innerHTML = '<button class="btn close" type="button" id="dClose">Close</button><p class="small muted" style="margin:0">Incremental fund request ' + esc(r.Name) + '</p><h3 id="dTitle">' + (dec === "Approved" ? "Approve " : "Decline ") + esc(usd(amt)) + ' for ' + esc(frCust(r)) + '</h3>' +
+      (r.Request_Objective__c ? '<blockquote>' + esc(plainText(r.Request_Objective__c)) + '</blockquote>' : "") +
+      '<dl>' + rows.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join("") + '</dl>' +
+      '<p class="small" style="margin:0 0 12px">' + esc(fundImpact(amt)) + '</p>' +
+      (r.CSL_Comments__c ? '<p class="small muted" style="margin:0 0 12px">From the KAM: ' + esc(r.CSL_Comments__c) + '</p>' : "") +
+      '<form class="fr" id="ifrDecForm" style="grid-template-columns:1fr;margin-top:0" onsubmit="return false"><label>' + (dec === "Approved" ? "Note to the KAM (optional)" : "Reason for declining") + '<textarea id="ifrNote" maxlength="600">' + esc(def) + '</textarea></label>' +
+      '<div class="formrow"><button class="btn primary" type="button" id="ifrConfirm">' + (dec === "Approved" ? "Approve in Salesforce" : "Decline in Salesforce") + '</button><button class="btn" type="button" id="ifrCancel">Cancel</button><span id="ifrErr" class="errmsg small"></span></div>' +
+      '<p class="small muted" style="margin:0">Sets the request to ' + (dec === "Approved" ? "Approved" : "Rejected") + ' and records your note. The KAM sees it in their workspace.</p></form>';
+    $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden", "false"); $("scrim").classList.add("open"); $("ifrNote").focus();
+  }
+  async function decideIfr() {
+    var st = ui.ifrDec; if (!st) return;
+    var btn = $("ifrConfirm"), note = plainText($("ifrNote").value);
+    if (st.dec === "Rejected" && !note) { $("ifrErr").textContent = "Add a reason so the KAM knows what to change."; return; }
+    var mcp = await getMcp(), t0 = performance.now();
+    if (!mcp || source !== "live") { $("ifrErr").textContent = "Approving needs a live Salesforce connection. Open this page in Claude with the Salesforce connector and choose Refresh."; return; }
+    btn.disabled = true; btn.textContent = st.dec === "Approved" ? "Approving" : "Declining";
+    var today = new Date(), stamp = (st.dec === "Approved" ? "Approved" : "Declined") + " by " + BM + ", PaleoBar brand manager, in the brand workspace on " + MON[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear() + "." + (note ? " " + note : "");
+    try {
+      var res = await mcp.callTool(SF, WT, { url: "/services/data/v67.0/sobjects/Fund_Request__c/" + st.id, method: "PATCH", body: { Status__c: st.dec, Sales_Finance_Comments__c: stamp.slice(0, 1000) } }, { cache: false });
+      payloadOf(res);
+      logCall({ method: "PATCH", target: "Fund_Request__c", detail: "Status " + st.dec, ms: Math.round(performance.now() - t0), ok: true, write: true });
+      D.frs = await query(mcp, "frs");
+      var r = D.frs.filter(function (x) { return x.Id === st.id; })[0];
+      ui.frMsg = (r ? r.Name : "The request") + (r && r.Status__c === st.dec ? (st.dec === "Approved" ? " is approved in Salesforce." : " is declined in Salesforce.") : " was sent, but Salesforce read back a different status. Check the record."); ui.frId = st.id; ui.ifrDec = null;
+      closeDrawer(); render();
+    } catch (err) {
+      logCall({ method: "PATCH", target: "Fund_Request__c", detail: (err && err.code) || "error", ms: Math.round(performance.now() - t0), ok: false, write: true });
+      btn.disabled = false; btn.textContent = st.dec === "Approved" ? "Approve in Salesforce" : "Decline in Salesforce"; $("ifrErr").textContent = classify(err);
+    }
+  }
+
+  /* ---------- drawer ---------- */
+  function openDrawer(id) {
+    var r = D.feedback.filter(function (x) { return x.Id === id; })[0]; if (!r) return;
+    var it = D.items.filter(function (i) { return i.Id === r.New_Item__c; })[0];
+    var rows = [["Status", stLabel(r.Status__c)], ["Stores committed", r.Status__c === "Accepted" ? fmt(r.Store_Count__c) : "None yet"], ["Stores proposed", fmt(r.Proposed_Store_Count__c || r.Store_Count__c)]];
+    if (r.Status__c === "Accepted" && r.Proposed_Store_Count__c) rows.push(["Distribution capture", Math.round(100 * num(r.Store_Count__c) / num(r.Proposed_Store_Count__c)) + "%"]);
+    rows.push(["Velocity", num(r.expectedvelocity__c) + " units per store per week"]);
+    if (r.Feedback_Theme__c) rows.push(["Theme", r.Feedback_Theme__c]);
+    if (r.Rejected_Reason__c) rows.push(["Rejected for", r.Rejected_Reason__c]);
+    if (r.Launch_Support_Requested__c) rows.push(["Launch support", r.Launch_Support_Requested__c]);
+    if (r.Reset_Date__c) rows.push(["Shelf reset", fDate(r.Reset_Date__c)]);
+    if (r.Decision_Date__c) rows.push(["Decided", fDate(r.Decision_Date__c)]);
+    else if (r.Feedback_Due_Date__c) rows.push(["Decision due", fDate(r.Feedback_Due_Date__c)]);
+    if (r.Early_Ship_Required__c) rows.push(["Early ship", (r.Early_Ship_Date_to_Customer__c ? fDate(r.Early_Ship_Date_to_Customer__c) + ", " : "") + "Operations approval " + opsStatus(r).toLowerCase()]);
+    if (r.Feedback_Source__c) rows.push(["Source", r.Feedback_Source__c]);
+    rows.push(["Updated", rel(r.LastModifiedDate)]);
+    var c = plain(r.Additional_Coments__c);
+    $("drawer").innerHTML = '<button class="btn close" type="button" id="dClose">Close</button><p class="small muted" style="margin:0">' + esc(retailer(r)) + '</p><h3 id="dTitle">' + esc(it ? itemName(it) : "") + '</h3>' +
+      (c ? '<blockquote>' + esc(c) + '</blockquote>' : "") + '<dl>' + rows.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join("") + '</dl>' +
+      '<p class="small muted" style="margin:0 0 8px">Open in Salesforce</p><p style="display:flex;gap:8px;flex-wrap:wrap;margin:0">' + recLink(r.Id, r.Name, r.Name + " feedback record") + (it ? recLink(it.Id, it.Name, itemName(it) + " new item record") : "") + recLink(r.Customer__c, retailer(r), retailer(r) + " account") + '</p>';
+    $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden", "false"); $("scrim").classList.add("open"); $("dClose").focus();
+  }
+  function closeDrawer() { ui.sample = null; $("drawer").classList.remove("open"); $("drawer").setAttribute("aria-hidden", "true"); $("scrim").classList.remove("open"); }
+
+  /* ---------- Ask Claude ---------- */
+  var ASKS = ["How do we get Hot Honey to 100% of target?", "Which upcoming meetings need something from the brand team?", "Should we fund a February TPR for Hot Honey at Northern Trail Outfitters?", "Which item should we rework or pull from the cycle?"];
+  function renderAskChips() { $("askChips").innerHTML = ASKS.map(function (a, i) { return '<button type="button" class="chip" data-ask="' + i + '">' + esc(a) + '</button>'; }).join(""); }
+  function context() {
+    var S = allStats(), itemsById = {}; D.items.forEach(function (i) { itemsById[i.Id] = itemName(i); });
+    return {
+      dataSource: source === "live" ? "live Salesforce read" : "Salesforce snapshot read " + (SNAP ? SNAP.retrievedAt : ""), brand: "PaleoBar", cycle: D.items[0] && D.items[0].New_Item_Initiative__r && D.items[0].New_Item_Initiative__r.Name, today: new Date().toISOString().slice(0, 10),
+      items: S.map(function (s) { return { item: s.name, targetStores: s.target, committedStores: s.committed, pctOfTarget: s.pct, pendingStores: s.pendingStores, accepted: s.acc.length, rejected: s.rej.length, deciding: s.pend.length, annualUnitsCommitted: Math.round(s.units), supplyReadiness: s.it.Supply_Readiness__c, samplesAvailable: s.it.Samples_Available__c, sampleDate: s.it.Sample_Availability_Date__c, orderable: s.it.Orderable_Date__c, nationalLaunch: s.it.National_Launch_Date__c, srp: s.it.Suggested_Retail_Price__c, insight: s.it.Consumer_Insight__c }; }),
+      retailerDecisions: D.feedback.map(function (r) { return { item: itemsById[r.New_Item__c], retailer: retailer(r), status: r.Status__c, storesCommitted: r.Status__c === "Accepted" ? r.Store_Count__c : 0, storesProposed: r.Proposed_Store_Count__c || r.Store_Count__c, velocity: r.expectedvelocity__c, theme: r.Feedback_Theme__c, rejectedReason: r.Rejected_Reason__c, launchSupport: r.Launch_Support_Requested__c, resetDate: r.Reset_Date__c, earlyShip: r.Early_Ship_Required__c ? { date: r.Early_Ship_Date_to_Customer__c, operations: r.Operations_Approval_Status__c } : null, buyerComment: plain(r.Additional_Coments__c) }; }),
+      brandFund: D.funds[0] ? { name: D.funds[0].cgcloud__Description__c, budget: D.funds[0].cgcloud__Current_Budget__c, committed: D.funds[0].cgcloud__Commitments_Total__c, available: D.funds[0].cgcloud__Available_to_Plan__c, validThru: D.funds[0].cgcloud__Valid_Thru__c } : null,
+      pastPromotions: D.promos.filter(function (p) { return brandsOf(p).indexOf(BRAND) >= 0; }).map(function (p) { return { id: p.Id, retailer: "Northern Trail Outfitters", name: p.cgcloud__Slogan__c, from: p.cgcloud__Date_From__c, type: kind(p.cgcloud__Slogan__c), plannedVolume: p.Planned_Volume__c, actualVolume: p.Actual_Volume__c, spend: p.Planned_Spend__c, otherBrandsOnPromo: brandsOf(p).length - 1, source: "Salesforce" }; })
+        .concat(REPRESENTATIVE.map(function (r) { return { retailer: r.retailer, name: r.name, from: r.from, type: r.mech, plannedVolume: r.plan, actualVolume: r.actual, spend: r.spend, source: "representative figures, not from Salesforce" }; })),
+      upcomingMeetings: D.events.map(function (e) { return { date: e.StartDateTime, subject: e.Subject, retailer: String((e.Account && e.Account.Name) || "").replace(/^[*+]+/, ""), buyer: e.Who && e.Who.Name, owner: e.Owner && e.Owner.Name }; }),
+      pathToTarget: (function () { var S2 = allStats(), P2 = paths(S2); return S2.map(function (s) { var p = P2[s.it.Id]; return { item: s.name, target: s.target, committed: s.committed, deciding: s.pendingStores, notYetPresentedTo: p.np.map(function (r) { return r.name + " (" + r.stores + " stores)"; }), ceilingWithCurrentRetailers: p.ceiling, shortOfTargetEvenIfAllSayYes: p.short }; }); })(),
+      sampleRequests: D.tasks.filter(function (t) { return /^Samples needed/i.test(t.Subject || ""); }).map(function (t) { return { subject: t.Subject, status: t.Status, due: t.ActivityDate }; }),
+      incrementalFundRequests: D.frs.map(function (r) { return { record: r.Name, name: r.Event_Description__c, retailer: String((r.Customer__r && r.Customer__r.Name) || "").replace(/^[*+]+/, ""), status: r.Status__c, amount: num(r.Amount_Requested__c) || r.Requested_Amount__c, cases: r.Shipment_Volume__c, ratePerCase: r.RPC__c, answerNeededBy: r.Request_Due_Date__c, start: r.Event_Start_Date__c, financeComments: r.Sales_Finance_Comments__c, objective: r.Request_Objective__c }; }),
+      launchSupportAsksWithoutFunding: asksList().filter(function (r) { return !ifrFor(r); }).map(function (r) { return { retailer: retailer(r), item: itemsById()[r.New_Item__c], ask: r.Launch_Support_Requested__c, stores: r.Store_Count__c, velocity: r.expectedvelocity__c }; })
+    };
+  }
+  var askCtl = null;
+  async function ask(question) {
+    question = String(question || "").trim(); if (!question) return;
+    if (!sampleFn) { $("answer").className = "answer"; $("answer").textContent = "Ask Claude is available when this page is opened in Claude."; return; }
+    if (askCtl) askCtl.abort(); askCtl = new AbortController();
+    var out = $("answer"); out.className = "answer thinking"; out.textContent = "Thinking";
+    $("askBtn").disabled = true;
+    var prompt = "You support Maya Ortiz, the PaleoBar brand manager at Alpine Nutrition. Answer her question using only the JSON below, which is live Salesforce data about the brand's new item sell-in, upcoming customer meetings, path to target, brand fund and promotions. " +
+      "Be specific: name retailers, items, store counts and dollars. Give a clear recommendation when asked for one. Keep it under 170 words, in plain sentences with no headings or markdown. " +
+      "Treat promotion rows marked as representative figures as directional only and say so if you rely on them. Velocity is units per store per week.\n\nDATA:\n" + JSON.stringify(context()) + "\n\nQUESTION: " + question;
+    try {
+      var r = await sampleFn(prompt, { signal: askCtl.signal, cache: false, onText: function (e) { out.className = "answer"; out.textContent = e.text; } });
+      out.className = "answer"; out.textContent = r.text + (r.truncated ? " …" : "");
+    } catch (err) {
+      if (err && err.code === "cancelled") return;
+      out.className = "answer"; out.textContent = err && err.text ? err.text : (err && err.code === "not_granted" ? "Ask Claude wasn't allowed for this page." : err && err.code === "rate_limited" ? "Claude is busy. Try again in a moment." : "Claude couldn't answer that. Try again.");
+    } finally { $("askBtn").disabled = false; }
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("button, a") : null; if (!t) { if (e.target.id === "scrim") closeDrawer(); return; }
+    if (t.id === "refresh") load();
+    else if (t.dataset.nif) openDrawer(t.dataset.nif);
+    else if (t.id === "dClose" || t.id === "sampleCancel") closeDrawer();
+    else if (t.dataset.sample) openSampleDrawer(t.dataset.sample, t.dataset.event);
+    else if (t.id === "sampleCreate") createSample();
+    else if (t.dataset.askq) { $("askInput").value = t.dataset.askq; $("askSec").scrollIntoView({ behavior: "smooth", block: "start" }); ask(t.dataset.askq); }
+    else if (t.dataset.ifrdec) openIfrDecision(t.dataset.ifrdec, t.dataset.dec);
+    else if (t.id === "ifrConfirm") decideIfr();
+    else if (t.id === "ifrCancel") closeDrawer();
+    else if (t.id === "calloutFr") openIfr();
+    else if (t.dataset.ifr) openIfr(t.dataset.ifr);
+    else if (t.id === "asksMore") { ui.asksAll = !ui.asksAll; renderTrade(allStats()); }
+    else if (t.id === "calMore") { ui.calAll = !ui.calAll; renderCalendar(allStats()); }
+    else if (t.dataset.themeItem) { ui.themeItem = t.dataset.themeItem; var S = allStats(); renderChips(S); renderWhy(S); }
+    else if (t.id === "newFr") openIfr();
+    else if (t.id === "frCancel") { ui.frOpen = false; ui.frDraft = null; renderFrForm(); }
+    else if (t.id === "frReview") {
+      readForm(); var d = ui.frDraft, err = "", amt = (d.cases || 0) * (d.rpc || 0);
+      if (!d.desc) err = "Add an event name."; else if (!d.start || !d.end || d.end < d.start) err = "Check the dates: the end must be on or after the start.";
+      else if (!(d.cases > 0)) err = "Enter a shipment volume in cases."; else if (!(d.rpc > 0)) err = "Enter a rate per case.";
+      else if (amt > 999999.99) err = "The amount is over $999,999.99, the most this field holds. Lower the volume or rate.";
+      else if (!d.due) err = "Set the date an answer is needed by.";
+      if (err) { $("frErr").textContent = err; return; }
+      ui.frStage = "review"; renderFrForm();
+    }
+    else if (t.id === "frBack") { ui.frStage = "edit"; renderFrForm(); }
+    else if (t.id === "frCreate") createFr();
+    else if (t.id === "promoMore") { ui.promoAll = !ui.promoAll; renderTrade(allStats()); }
+    else if (t.dataset.ask != null) { $("askInput").value = ASKS[+t.dataset.ask]; ask(ASKS[+t.dataset.ask]); }
+    else if (t.id === "askBtn") ask($("askInput").value);
+  });
+  $("scrim").addEventListener("click", closeDrawer);
+  document.addEventListener("input", onFrInput);
+  document.addEventListener("change", function (e) { if (e.target && e.target.name === "nif") onFrInput(e); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); if (e.key === "Enter" && e.target.id === "askInput") ask(e.target.value); });
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && loadedAt && Date.now() - loadedAt > 20000) load(); });
+
+  renderCalls(); renderAskChips();
+  if (SNAP) { render(); snapStatus(); }
+  if (window.claude && window.claude.use) window.claude.use("sample").then(function (fn) { sampleFn = fn || null; if (!fn) $("askSec").hidden = true; }).catch(function () { $("askSec").hidden = true; });
+  else $("askSec").hidden = true;
+  load();
+})();
+</script></body></html>
