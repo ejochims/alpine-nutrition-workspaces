@@ -2231,10 +2231,17 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
 
   /* ---------- Ask Claude (sample capability) ---------- */
   var ASK_COPY = { not_granted: "Claude isn't allowed for this page, so this feature is off for this view.", sampling_disabled: "Claude isn't available for this account.", rate_limited: "Too many requests right now. Try again in a minute.", session_expired: "Sign in to Claude again, then retry.", refused: "Claude declined this request.", prompt_too_large: "Too much data for one request.", empty_completion: "Claude returned nothing. Try again.", upstream_error: "The request was interrupted. Try again." };
+  var DATA_STATUS = null;
+  function dataSourceLine() {
+    var st = DATA_STATUS || { mode: "snapshot" };
+    if (st.mode === "live") return "Data source: a full live Salesforce read" + (st.at ? " at " + fTime(st.at) : "") + ".";
+    if (st.mode === "partial") return "Data source: a partial refresh. " + st.okCount + " of " + SECTIONS.length + " sections were re-read live from Salesforce; the rest come from a snapshot embedded in the page" + (SNAP ? " (read " + fDT(SNAP.retrievedAt) + ")" : "") + ". Say so briefly if it affects your answer.";
+    return "Data source: a snapshot of Salesforce records embedded in the page" + (SNAP ? ", read " + fDT(SNAP.retrievedAt) : "") + ", not a live read. Say so in one short clause at the start.";
+  }
   function buildAsk(kind, m, extra) {
     var fb = m.feedback.map(function (f) { return { record: f.Name, item: f.Product__c, status: f.Status__c, stores: f.Store_Count__c, unitsPerStorePerWeek: f.expectedvelocity__c, initialFillCases: f.Pipeline_Fill_Cases__c, decisionDate: f.Decision_Date__c, rejectedReason: f.Rejected_Reason__c, earlyShipRequired: f.Early_Ship_Required__c, earlyShipDate: f.Early_Ship_Date_to_Customer__c, inventoryOnHandBy: f.Required_Inventory_on_Hand_Date__c, resetDate: f.Reset_Date__c, operationsApproval: approvalState(f).state }; });
     var openTasks = m.tasks.filter(function (t) { return !t.IsClosed && t.ActivityDate && pd(t.ActivityDate) <= addDays(TODAY, 21); }).map(function (t) { return { task: t.Subject, due: t.ActivityDate, with: t.Who ? t.Who.Name : null }; });
-    var today = "Today is " + fDate(ymd(TODAY)) + ".";
+    var today = "Today is " + fDate(ymd(TODAY)) + ". " + dataSourceLine();
     if (kind === "recap") return { title: "Recap to the buyer", sub: "Drafted by Claude from the Salesforce records on this page", prompt: "You are helping James Durbin, Key Account Manager at Alpine Nutrition, follow up with Ben Dailey (Senior Category Manager, Northern Trail Outfitters) after their H1 2027 new item review. " + today + "\n\nWrite a short follow-up email confirming what is now recorded in Salesforce. Rules: use only the data below and never invent numbers or dates; say clearly that any early ship is pending Alpine Operations approval if operationsApproval is 'pending'; list next steps from the open tasks; warm, concise, no more than 170 words. Plain text only: start with 'Subject: ...', then the email body. No markdown.\n\nNew item feedback records:\n" + JSON.stringify(fb) + "\n\nOpen tasks:\n" + JSON.stringify(openTasks) };
     if (kind === "funding") {
       var funds = m.funds.map(function (f) { return { fund: f.cgcloud__Description__c, type: f.type, brand: f.brand, budget: Math.round(f.budget), committed: Math.round(f.committed), availableToPlan: Math.round(f.avail), validThrough: f.cgcloud__Valid_Thru__c }; });
@@ -2306,7 +2313,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
         <ol class="flow">
           <li><b>This page</b><span>A Claude artifact. No Salesforce credentials in its code.</span></li>
           <li><b>Your Salesforce connector</b><span>Salesforce Headless 360 MCP, called with your own login and permissions.</span></li>
-          <li><b>Salesforce</b><span>Reads with <code>${SF_TOOL}</code>. Writes with <code>${SF_WRITE_TOOL}</code>, only after you review a change. Flows and approvals run as usual.</span></li>
+          <li><b>Salesforce</b><span>Reads with <code>${SF_TOOL}</code>. Writes with <code>${SF_WRITE_TOOL}</code>, only after you review a change. Validation rules and record-triggered flows run as for any API update. This page doesn't submit records to approval processes.</span></li>
           <li><b>Claude</b><span>Drafts and reasoning on request, grounded in the records on this page. Nothing is sent without you.</span></li>
         </ol>
         <div class="uth-stats"><span><b>${reads}</b> reads</span><span><b>${writes}</b> writes</span><span><b>${asks}</b> Claude requests</span>${p.watching ? html`<span><${A.StatusBadge} tone="success">Live watch on<//></span>` : null}</div>
@@ -2391,6 +2398,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
   function App() {
     var ds = useState(function () { var d = {}; SECTIONS.forEach(function (k) { d[k] = SNAP[k] || []; }); return d; }), data = ds[0], setData = ds[1];
     var ss = useState({ mode: "snapshot", refreshing: false, at: null, okCount: 0, acctModified: null }), status = ss[0], setStatus = ss[1];
+    DATA_STATUS = status;
     var es = useState({}), errs = es[0], setErrs = es[1];
     var ps = useState(null), pageErr = ps[0], setPageErr = ps[1];
     var ns = useState(""), mcpNote = ns[0], setMcpNote = ns[1];
@@ -2537,7 +2545,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
         ${tab === "service" ? html`<div role="tabpanel" aria-label="Service and data">${E(["support", "stores"])}<${Service} m=${m} presenter=${presenter} /></div>` : null}
       </section>
 
-      ${presenter ? null : html`<p class="note">Salesforce reads and reviewed saves run through the Headless 360 connector with the viewer's own connection. This page holds no credentials, and it writes only the New Item Feedback fields listed in Update feedback, after you review and confirm the change.</p>`}
+      ${presenter ? null : html`<p class="note">Salesforce reads and reviewed saves run through the Headless 360 connector with the viewer's own connection. This page holds no credentials. It writes two things, each after you review and confirm: the New Item Feedback fields listed in Update feedback, and new incremental fund requests.</p>`}
       ${prepFor ? html`<${PrepDrawer} m=${m} eventId=${prepFor} onClose=${function () { setPrepFor(null); }} onUpdate=${function (id) { setPrepFor(null); setPreparing(id); }} onAsk=${sample ? function (k, e) { setAsk(buildAsk(k, m, e)); } : null} />` : null}
       ${ask ? html`<${AskDialog} ask=${ask} sample=${sample} onClose=${function () { setAsk(null); }} onUnavailable=${function () { setSample(null); }} />` : null}
       ${ifrOpen ? html`<${IfrDialog} m=${m} mcpReady=${mcpReady} getMcp=${function () { return mcpP.current || Promise.resolve(null); }} onClose=${function (saved) { setIfrOpen(false); if (saved) refresh(); }} />` : null}

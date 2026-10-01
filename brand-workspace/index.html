@@ -424,7 +424,7 @@ form.fr input,form.fr select,form.fr textarea{width:100%;max-width:100%;min-widt
           <div class="fund" style="margin-top:16px">
             <h3>Incremental fund requests</h3>
             <ul class="frlist" id="frList"></ul>
-            <p class="small muted" id="frHint" style="margin:12px 0 0">Key account managers submit these from their workspace. You approve or decline them here.</p>
+            <p class="small muted" id="frHint" style="margin:12px 0 0">Key account managers submit these from their workspace. You record your funding decision here: it updates the request in Salesforce, and the KAM sees it when their workspace refreshes.</p>
           </div>
         </div>
         <div>
@@ -437,7 +437,7 @@ form.fr input,form.fr select,form.fr textarea{width:100%;max-width:100%;min-widt
 
     <section class="card" id="askSec" aria-labelledby="askh">
       <h2 id="askh">Ask Claude about PaleoBar</h2>
-      <p class="lede">Claude reads the same live Salesforce data shown on this page.</p>
+      <p class="lede">Claude answers from the data shown on this page: live when the status at the top says so, otherwise the snapshot. Rows marked Representative are illustrative.</p>
       <div class="chips" id="askChips"></div>
       <div class="askrow">
         <input id="askInput" type="text" placeholder="Ask about items, retailers, meetings or funding" aria-label="Question for Claude">
@@ -449,7 +449,7 @@ form.fr input,form.fr select,form.fr textarea{width:100%;max-width:100%;min-widt
 
   <details class="calls" id="calls">
     <summary><span class="sf-lock" style="font-size:15px"><img id="logoSF2" alt="" width="34" height="24">Salesforce calls from this page</span></summary>
-    <p class="small muted">Every number above is read live through the Salesforce connector, running headless: no Salesforce login, no copy of the data. Writes go through the same connector and trigger the same flows and approvals as the Salesforce UI.</p>
+    <p class="small muted">When the status at the top says Live, the figures above come from the reads listed here, made through your own Salesforce connector with your permissions. This page holds no Salesforce credentials. If a live read fails, the page falls back to a snapshot of the same records embedded when it was published, and the status and notice say so. Promotion rows marked Representative are illustrative figures, not Salesforce records. Writes are standard record updates through the same connector: validation rules and record-triggered flows run as for any API update, but nothing is submitted to a Salesforce approval process.</p>
     <ul class="calllist" id="callList"></ul>
   </details>
 </main>
@@ -499,7 +499,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
   if (SNAP) { Object.keys(D).forEach(function (k) { D[k] = (SNAP[k] || []).slice(); }); source = "snapshot"; }
   function snapTime() { var d = SNAP && new Date(SNAP.retrievedAt); return d && !isNaN(d) ? MON[d.getMonth()] + " " + d.getDate() + ", " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : ""; }
   function snapStatus() { setStatus("snap", "Salesforce snapshot, read " + snapTime()); }
-  var ERR = {};
+  var ERR = {}, liveAt = null;
   var mcpP = null, sampleFn = null, loadedAt = 0, loading = false;
   var ui = { promoAll: false, themeItem: "all", frOpen: false, frStage: "edit", frDraft: null, frMsg: "", sample: null };
 
@@ -634,14 +634,15 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
     loadedAt = Date.now(); loading = false; $("refresh").disabled = false;
     var liveCore = got.items && got.feedback;
     Object.keys(got).forEach(function (k) { D[k] = got[k]; });
-    if (liveCore) { source = "live"; ERR = firstErr ? ERR : {}; }
+    if (liveCore) { source = "live"; liveAt = new Date(); }
     if (!liveCore) {
       if (source === "snapshot") { snapStatus(); $("notice").innerHTML = '<p class="notice">Couldn\'t refresh live, so this shows records read from Salesforce on ' + esc(snapTime()) + '. ' + esc(classify(firstErr)) + '</p>'; render(); }
       else { setStatus("err", "Couldn't read Salesforce"); $("notice").innerHTML = '<p class="notice">' + esc(classify(firstErr)) + '</p>'; }
       return;
     }
-    $("notice").innerHTML = firstErr ? '<p class="notice">Some sections could not be refreshed live and show the last Salesforce read. ' + esc(classify(firstErr)) + '</p>' : "";
-    setStatus("live", "Live from Salesforce, read " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
+    var stale = Object.keys(ERR);
+    $("notice").innerHTML = stale.length ? '<p class="notice">Some sections could not be refreshed live (' + esc(stale.map(function (k) { return LABEL[k]; }).join(", ")) + ') and show ' + (SNAP ? 'the embedded snapshot from ' + esc(snapTime()) : 'no data') + '. ' + esc(classify(ERR[stale[0]])) + '</p>' : "";
+    setStatus("live", (stale.length ? "Partly live from Salesforce" : "Live from Salesforce") + ", read " + liveAt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
     render();
   }
 
@@ -752,7 +753,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
     var pendingIfr = D.frs.filter(function (r) { return r.Status__c === "Submitted"; });
     pendingIfr.slice(0, 1).forEach(function (r) {
       var amt = num(r.Amount_Requested__c) || num(r.Requested_Amount__c);
-      C.push({ head: "Approval needed", title: frCust(r) + " requests " + usd(amt) + " for " + (r.Event_Description__c || r.Name),
+      C.push({ head: "Funding decision needed", title: frCust(r) + " requests " + usd(amt) + " for " + (r.Event_Description__c || r.Name),
         body: (r.Event_Start_Date__c ? fDate(r.Event_Start_Date__c, true) + " to " + fDate(r.Event_End_Date__c) + ", " : "") + (r.Shipment_Volume__c ? fmt(r.Shipment_Volume__c) + " cases at $" + num(r.RPC__c).toFixed(2) + ". " : "") + fundImpact(amt) + (r.Request_Due_Date__c ? " Answer needed by " + fDate(r.Request_Due_Date__c, true) + "." : ""),
         act: ifrDecisionButtons(r) + ' ' + recLink(r.Id, r.Name, "incremental fund request " + r.Name) });
     });
@@ -1170,8 +1171,8 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
       '<p class="small" style="margin:0 0 12px">' + esc(fundImpact(amt)) + '</p>' +
       (r.CSL_Comments__c ? '<p class="small muted" style="margin:0 0 12px">From the KAM: ' + esc(r.CSL_Comments__c) + '</p>' : "") +
       '<form class="fr" id="ifrDecForm" style="grid-template-columns:1fr;margin-top:0" onsubmit="return false"><label>' + (dec === "Approved" ? "Note to the KAM (optional)" : "Reason for declining") + '<textarea id="ifrNote" maxlength="600">' + esc(def) + '</textarea></label>' +
-      '<div class="formrow"><button class="btn primary" type="button" id="ifrConfirm">' + (dec === "Approved" ? "Approve in Salesforce" : "Decline in Salesforce") + '</button><button class="btn" type="button" id="ifrCancel">Cancel</button><span id="ifrErr" class="errmsg small"></span></div>' +
-      '<p class="small muted" style="margin:0">Sets the request to ' + (dec === "Approved" ? "Approved" : "Rejected") + ' and records your note. The KAM sees it in their workspace.</p></form>';
+      '<div class="formrow"><button class="btn primary" type="button" id="ifrConfirm">' + (dec === "Approved" ? "Record approval in Salesforce" : "Record decline in Salesforce") + '</button><button class="btn" type="button" id="ifrCancel">Cancel</button><span id="ifrErr" class="errmsg small"></span></div>' +
+      '<p class="small muted" style="margin:0">Sets the request\'s Status to ' + (dec === "Approved" ? "Approved" : "Rejected") + ' and records your note on it. This is a direct record update, not a submission to a Salesforce approval process. The KAM sees it when their workspace refreshes.</p></form>';
     $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden", "false"); $("scrim").classList.add("open"); $("ifrNote").focus();
   }
   async function decideIfr() {
@@ -1179,8 +1180,8 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
     var btn = $("ifrConfirm"), note = plainText($("ifrNote").value);
     if (st.dec === "Rejected" && !note) { $("ifrErr").textContent = "Add a reason so the KAM knows what to change."; return; }
     var mcp = await getMcp(), t0 = performance.now();
-    if (!mcp || source !== "live") { $("ifrErr").textContent = "Approving needs a live Salesforce connection. Open this page in Claude with the Salesforce connector and choose Refresh."; return; }
-    btn.disabled = true; btn.textContent = st.dec === "Approved" ? "Approving" : "Declining";
+    if (!mcp || source !== "live") { $("ifrErr").textContent = "Recording a decision needs a live Salesforce connection. Open this page in Claude with the Salesforce connector and choose Refresh."; return; }
+    btn.disabled = true; btn.textContent = "Saving";
     var today = new Date(), stamp = (st.dec === "Approved" ? "Approved" : "Declined") + " by " + BM + ", PaleoBar brand manager, in the brand workspace on " + MON[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear() + "." + (note ? " " + note : "");
     try {
       var res = await mcp.callTool(SF, WT, { url: "/services/data/v67.0/sobjects/Fund_Request__c/" + st.id, method: "PATCH", body: { Status__c: st.dec, Sales_Finance_Comments__c: stamp.slice(0, 1000) } }, { cache: false });
@@ -1188,11 +1189,11 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
       logCall({ method: "PATCH", target: "Fund_Request__c", detail: "Status " + st.dec, ms: Math.round(performance.now() - t0), ok: true, write: true });
       D.frs = await query(mcp, "frs");
       var r = D.frs.filter(function (x) { return x.Id === st.id; })[0];
-      ui.frMsg = (r ? r.Name : "The request") + (r && r.Status__c === st.dec ? (st.dec === "Approved" ? " is approved in Salesforce." : " is declined in Salesforce.") : " was sent, but Salesforce read back a different status. Check the record."); ui.frId = st.id; ui.ifrDec = null;
+      ui.frMsg = !r ? "The decision was sent, but the request wasn't found when Salesforce was read back (" + st.id + "). Check the record." : r.Status__c === st.dec ? "Read back from Salesforce: " + r.Name + " (" + r.Id + ") now has Status " + r.Status__c + "." : "The decision was sent, but Salesforce read back Status " + (r.Status__c || "blank") + " on " + r.Name + " (" + r.Id + "). Check the record."; ui.frId = st.id; ui.ifrDec = null;
       closeDrawer(); render();
     } catch (err) {
       logCall({ method: "PATCH", target: "Fund_Request__c", detail: (err && err.code) || "error", ms: Math.round(performance.now() - t0), ok: false, write: true });
-      btn.disabled = false; btn.textContent = st.dec === "Approved" ? "Approve in Salesforce" : "Decline in Salesforce"; $("ifrErr").textContent = classify(err);
+      btn.disabled = false; btn.textContent = st.dec === "Approved" ? "Record approval in Salesforce" : "Record decline in Salesforce"; $("ifrErr").textContent = classify(err);
     }
   }
 
@@ -1223,10 +1224,17 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
   /* ---------- Ask Claude ---------- */
   var ASKS = ["How do we get Hot Honey to 100% of target?", "Which upcoming meetings need something from the brand team?", "Should we fund a February TPR for Hot Honey at Northern Trail Outfitters?", "Which item should we rework or pull from the cycle?"];
   function renderAskChips() { $("askChips").innerHTML = ASKS.map(function (a, i) { return '<button type="button" class="chip" data-ask="' + i + '">' + esc(a) + '</button>'; }).join(""); }
+  function dataSourceNote() {
+    var stale = Object.keys(ERR);
+    if (source === "live" && !stale.length) return "full live Salesforce read at " + liveAt.toISOString();
+    if (source === "live") return "partial refresh: live Salesforce read at " + liveAt.toISOString() + ", except " + stale.map(function (k) { return LABEL[k]; }).join(", ") + ", which " + (SNAP ? "come from an embedded snapshot read on " + SNAP.retrievedAt : "are missing") + "; not fully live";
+    if (source === "snapshot") return "embedded snapshot of Salesforce records read on " + (SNAP ? SNAP.retrievedAt : "an earlier date") + "; not a live read";
+    return "no Salesforce data loaded";
+  }
   function context() {
     var S = allStats(), itemsById = {}; D.items.forEach(function (i) { itemsById[i.Id] = itemName(i); });
     return {
-      dataSource: source === "live" ? "live Salesforce read" : "Salesforce snapshot read " + (SNAP ? SNAP.retrievedAt : ""), brand: "PaleoBar", cycle: D.items[0] && D.items[0].New_Item_Initiative__r && D.items[0].New_Item_Initiative__r.Name, today: new Date().toISOString().slice(0, 10),
+      dataSource: dataSourceNote(), illustrativeData: REPRESENTATIVE.length ? "pastPromotions rows whose source is 'representative figures, not from Salesforce' are illustrative, not Salesforce records" : null, brand: "PaleoBar", cycle: D.items[0] && D.items[0].New_Item_Initiative__r && D.items[0].New_Item_Initiative__r.Name, today: new Date().toISOString().slice(0, 10),
       items: S.map(function (s) { return { item: s.name, targetStores: s.target, committedStores: s.committed, pctOfTarget: s.pct, pendingStores: s.pendingStores, accepted: s.acc.length, rejected: s.rej.length, deciding: s.pend.length, annualUnitsCommitted: Math.round(s.units), supplyReadiness: s.it.Supply_Readiness__c, samplesAvailable: s.it.Samples_Available__c, sampleDate: s.it.Sample_Availability_Date__c, orderable: s.it.Orderable_Date__c, nationalLaunch: s.it.National_Launch_Date__c, srp: s.it.Suggested_Retail_Price__c, insight: s.it.Consumer_Insight__c }; }),
       retailerDecisions: D.feedback.map(function (r) { return { item: itemsById[r.New_Item__c], retailer: retailer(r), status: r.Status__c, storesCommitted: r.Status__c === "Accepted" ? r.Store_Count__c : 0, storesProposed: r.Proposed_Store_Count__c || r.Store_Count__c, velocity: r.expectedvelocity__c, theme: r.Feedback_Theme__c, rejectedReason: r.Rejected_Reason__c, launchSupport: r.Launch_Support_Requested__c, resetDate: r.Reset_Date__c, earlyShip: r.Early_Ship_Required__c ? { date: r.Early_Ship_Date_to_Customer__c, operations: r.Operations_Approval_Status__c } : null, buyerComment: plain(r.Additional_Coments__c) }; }),
       brandFund: D.funds[0] ? { name: D.funds[0].cgcloud__Description__c, budget: D.funds[0].cgcloud__Current_Budget__c, committed: D.funds[0].cgcloud__Commitments_Total__c, available: D.funds[0].cgcloud__Available_to_Plan__c, validThru: D.funds[0].cgcloud__Valid_Thru__c } : null,
@@ -1236,7 +1244,7 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
       pathToTarget: (function () { var S2 = allStats(), P2 = paths(S2); return S2.map(function (s) { var p = P2[s.it.Id]; return { item: s.name, target: s.target, committed: s.committed, deciding: s.pendingStores, notYetPresentedTo: p.np.map(function (r) { return r.name + " (" + r.stores + " stores)"; }), ceilingWithCurrentRetailers: p.ceiling, shortOfTargetEvenIfAllSayYes: p.short }; }); })(),
       sampleRequests: D.tasks.filter(function (t) { return /^Samples needed/i.test(t.Subject || ""); }).map(function (t) { return { subject: t.Subject, status: t.Status, due: t.ActivityDate }; }),
       incrementalFundRequests: D.frs.map(function (r) { return { record: r.Name, name: r.Event_Description__c, retailer: String((r.Customer__r && r.Customer__r.Name) || "").replace(/^[*+]+/, ""), status: r.Status__c, amount: num(r.Amount_Requested__c) || r.Requested_Amount__c, cases: r.Shipment_Volume__c, ratePerCase: r.RPC__c, answerNeededBy: r.Request_Due_Date__c, start: r.Event_Start_Date__c, financeComments: r.Sales_Finance_Comments__c, objective: r.Request_Objective__c }; }),
-      launchSupportAsksWithoutFunding: asksList().filter(function (r) { return !ifrFor(r); }).map(function (r) { return { retailer: retailer(r), item: itemsById()[r.New_Item__c], ask: r.Launch_Support_Requested__c, stores: r.Store_Count__c, velocity: r.expectedvelocity__c }; })
+      launchSupportAsksWithoutFunding: asksList().filter(function (r) { return !ifrFor(r); }).map(function (r) { return { retailer: retailer(r), item: itemsById[r.New_Item__c], ask: r.Launch_Support_Requested__c, stores: r.Store_Count__c, velocity: r.expectedvelocity__c }; })
     };
   }
   var askCtl = null;
@@ -1245,10 +1253,14 @@ window.__LOGOS__ = { light: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7QAA
     if (!sampleFn) { $("answer").className = "answer"; $("answer").textContent = "Ask Claude is available when this page is opened in Claude."; return; }
     if (askCtl) askCtl.abort(); askCtl = new AbortController();
     var out = $("answer"); out.className = "answer thinking"; out.textContent = "Thinking";
+    var ctx;
+    try { ctx = JSON.stringify(context()); }
+    catch (e) { out.className = "answer errmsg"; out.textContent = "Couldn't assemble this page's data for Claude (" + ((e && e.message) || "unknown error") + "). Choose Refresh and try again."; return; }
     $("askBtn").disabled = true;
-    var prompt = "You support Maya Ortiz, the PaleoBar brand manager at Alpine Nutrition. Answer her question using only the JSON below, which is live Salesforce data about the brand's new item sell-in, upcoming customer meetings, path to target, brand fund and promotions. " +
+    var prompt = "You support Maya Ortiz, the PaleoBar brand manager at Alpine Nutrition. Answer her question using only the JSON below, which is the data shown on her workspace: the brand's new item sell-in, upcoming customer meetings, path to target, brand fund and promotions. " +
+      "The dataSource field says whether it is a full live Salesforce read, a partial refresh, or an embedded snapshot. If it is not a full live read, say so in a short clause at the start of your answer. " +
       "Be specific: name retailers, items, store counts and dollars. Give a clear recommendation when asked for one. Keep it under 170 words, in plain sentences with no headings or markdown. " +
-      "Treat promotion rows marked as representative figures as directional only and say so if you rely on them. Velocity is units per store per week.\n\nDATA:\n" + JSON.stringify(context()) + "\n\nQUESTION: " + question;
+      "Treat promotion rows marked as representative figures as directional only and say so if you rely on them. Velocity is units per store per week.\n\nDATA:\n" + ctx + "\n\nQUESTION: " + question;
     try {
       var r = await sampleFn(prompt, { signal: askCtl.signal, cache: false, onText: function (e) { out.className = "answer"; out.textContent = e.text; } });
       out.className = "answer"; out.textContent = r.text + (r.truncated ? " …" : "");
